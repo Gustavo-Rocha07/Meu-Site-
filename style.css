@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 75px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+nav a:hover {
+    color: #D9B34C;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+
+.banner {
+    background-image: url(assets/img/banner.png);
+    display: flex;
+    position: relative;
+    height: 700px;
+    gap: 7rem;
+    min-width: 850px;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner h1 {
+    font-size: 48px;
+    color: white;
+    margin-left: 320px; 
+    width: 505px;
+    z-index: 1;
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+.banner button {
+    border: none;
+    color: #fff;
+    background-color: #D9B34C;
+    padding: 20px;
+    margin-left: 320px; /* aumenta ou diminui esse valor */
+    border-radius: 10px;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+.banner button:hover {
+    color: black; /* cor mais escura no hover */
+  }
+
+.amarelo {
+    color: #D9B34C;
+}
+
+@media screen and (max-width: 1500px){ 
+    .banner h1 {
+        margin-left: 100px; 
+    }
+
+    .banner button {
+        margin-left: 100px; 
+    }
+}

@@ -283,3 +283,25 @@ font-size: 36px;
   list-style: none;
   list-style-image: url("./assets/img/check.png");
 }
+
+.fotos {
+  display: flex;
+  background-color: #d9b24a;
+  justify-content: center;
+  gap: 3rem;
+  padding: 0 0 150px;
+}
+
+.fotos img {
+  height: 23%;
+  width: 23%;
+}
+
+.onda {
+  display: block;
+  background-image: url(assets/img/wave.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+}

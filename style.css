@@ -226,6 +226,7 @@ nav ul {
     font-size: 76px;
     font-weight: 400;
     align-items: center;
+    user-select: none;
 }
 
 .texto-sobre p {
@@ -233,6 +234,7 @@ nav ul {
     font-weight: 400;
     align-items: center;
     font-size: 20px;
+    user-select: none;
 }
 
 .divisor {
@@ -244,3 +246,40 @@ nav ul {
     margin-top: 5px;
     margin-bottom: 35px;
   }
+
+
+
+.line{
+    width: 988px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.11);
+    margin: 100px auto;
+  }
+
+.servicos h1{
+    font-size: 76px;
+    font-weight: 400;
+    text-align: center;
+    
+  }
+
+
+.listas{
+  display: flex;
+  justify-content: space-evenly;
+ 
+  margin: 100px 0;
+}
+
+.lista-1 ul{
+font-size: 36px;
+  list-style: none;
+  list-style-image: url("./assets/img/check.png");
+ 
+}
+
+.lista-2{
+  font-size: 36px;
+  list-style: none;
+  list-style-image: url("./assets/img/check.png");
+}

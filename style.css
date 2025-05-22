@@ -304,6 +304,11 @@ font-size: 36px;
   font-size: 48px;
   font-weight: 300;
 }
+.underline {
+  display: inline-block;
+  border-bottom: 2px solid #fff;
+  padding: 0 50px;
+}
 
 .depoimentos-row{
   display: flex;
@@ -322,7 +327,6 @@ font-size: 36px;
 
 .depoimento{
   background-color: #fff;
-  
   text-align: center;
   gap: 1rem;
   height: 700px;
@@ -331,9 +335,14 @@ font-size: 36px;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 80px 80px 30px 30px;
-  box-shadow: 0px 4px 100px 10px #2b2b2b67 ;
+  box-shadow: 0px 2px 30px #2b2b2b67 ;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  
+}
+
+.depoimento:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 50px  #2b2b2b67 ;
 }
 
 .depoimento img {

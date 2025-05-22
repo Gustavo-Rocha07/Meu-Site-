@@ -21,7 +21,13 @@ header {
   align-items: center;
   user-select: none;
   justify-content: space-between;
-  padding: 20px 75px;
+  padding: 18px 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
@@ -286,11 +292,24 @@ font-size: 36px;
 
 .depoimento-box {
   display: flex;
+  flex-direction: column;
+  gap: 100px;
   background-color: #d9b24a;
   justify-content: center;
   padding: 0 0 150px;
 }
 
+.depoimento-box h1{
+  color: #fff;
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.depoimentos-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 .onda {
   display: block;
@@ -303,7 +322,7 @@ font-size: 36px;
 
 .depoimento{
   background-color: #fff;
-  margin: 0 20px;
+  
   text-align: center;
   gap: 1rem;
   height: 700px;
@@ -321,8 +340,6 @@ font-size: 36px;
   width: 427px;
   height: 419px;
   border-radius: 80px 80px 0px 0px;
-  
-  
 }
 
 .texto-depoimento{
@@ -331,11 +348,6 @@ font-size: 36px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-   
- 
-
-
 
 }
 .texto-depoimento h2{
@@ -348,7 +360,5 @@ font-size: 36px;
 .texto-depoimento p{
   max-width: 300px;
   font-size: 20px;
-  
-
 
 }

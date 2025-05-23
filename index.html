@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <title>Michele Herreira</title>
 </head>
 <body>
   <header>
-    <img src="./assets/img/logoCompleta.png" alt="logo">
-    <nav>
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Sobre nós</a></li>
-        <li><a href="">Serviços</a></li>
-        <li><a href="">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+  <img src="./assets/img/logoCompleta.png" alt="logo" />
 
-  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#sobre-nos">Conheça mais</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
   <div style="height: 100px;"></div>
 
-  <section class="banner">
+  <section class="banner" id="inicio">
     <h1>Seu novo sorriso em até <span style="color: #D9B34C;">12 horas.</span></h1>
-    <button class="whatsappButton">Agende uma avaliação</button>
-
+    <a href="https://wa.me/5511986775000" target="_blank"><button>Agende uma avaliação</button></a>
   </section>
 
   <main>
-    <div class="Cards">
+    <section class="Cards" aria-label="Diferenciais e especialidades">
       <div class="card-diferente">
-        <img src="./assets/img/star.png" alt="star">
+        <img src="./assets/img/star.png" alt="star" />
         <h5>Especialista em carga imediata</h5>
         <h6>Implantes e dentes fixos no mesmo dia, devolvendo seu sorriso imediatamente</h6>
       </div>
       <div class="card-normal">
-        <img src="./assets/img/microscope.png" alt="microscope">
+        <img src="./assets/img/microscope.png" alt="microscope" />
         <h5>Cirurgia e Implantes</h5>
         <h6>Procedimentos cirúrgicos avançados e implantes com tecnologia de ponta</h6>
       </div>
       <div class="card-normal">
-        <img src="./assets/img/heart.png" alt="heart">
+        <img src="./assets/img/heart.png" alt="heart" />
         <h5>Odontopediatria</h5>
         <h6>Atendimento especializado e carinhoso para crianças, cuidando do sorriso desde cedo</h6>
       </div>
-    </div>
+    </section>
 
-    <section class="destaque">
+    <section class="destaque" aria-label="Destaques dos serviços">
       <div class="conteudo">
         <div class="coluna-imagens">
-          <img src="./assets/img/exemplo1.png" alt="exemplo-1" class="img-1">
-          <img src="./assets/img/exemplo2.png" alt="exemplo-2" class="img-2">
+          <img src="./assets/img/exemplo1.png" alt="exemplo-1" class="img-1" />
+          <img src="./assets/img/exemplo2.png" alt="exemplo-2" class="img-2" />
         </div>
         <div class="coluna-textos">
           <div class="bloco-texto">
@@ -68,96 +67,117 @@
       </div>
     </section>
 
-    <div class="sobre-box">
+    <section class="sobre-box" id="sobre-nos" aria-label="Sobre a Dra. Michele Herreira">
       <div class="texto-sobre">
         <h1>Conheça mais</h1>
-        <hr class="divisor">
+        <hr class="divisor" />
         <p>
-          A Dra. Michele Herreira é uma profissional com anos de experiência na odontologia, especializada em carga imediata, cirurgia, implantes dentários e odontopediatria. Ao longo de sua carreira, ela se dedicou a aprimorar suas habilidades com diversos cursos de especialização em instituições nacionais e internacionais, garantindo que sua prática esteja sempre atualizada com as últimas inovações no campo odontológico.<br><br>
+          A Dra. Michele Herreira é uma profissional com anos de experiência na odontologia, especializada em carga imediata, cirurgia, implantes dentários e odontopediatria. Ao longo de sua carreira, ela se dedicou a aprimorar suas habilidades com diversos cursos de especialização em instituições nacionais e internacionais, garantindo que sua prática esteja sempre atualizada com as últimas inovações no campo odontológico.<br /><br />
           Nossa clínica é referência em carga imediata, um tratamento inovador que permite a instalação de implantes dentários e dentes fixos no mesmo dia. Também oferecemos atendimento especializado para crianças, com foco no cuidado e conforto dos pequenos. Além disso, realizamos procedimentos cirúrgicos avançados, sempre com a máxima atenção à segurança e bem-estar dos pacientes.
         </p>
       </div>
-      <img src="./assets/img/michele.png" alt="michele">
-    </div>
+      <img src="./assets/img/michele.png" alt="Dra. Michele Herreira" />
+    </section>
 
-    <div class="line"></div>
-
-    <div class="servicos">
+    
+    <section class="servicos" id="servicos" aria-label="Serviços oferecidos">
       <h1>Serviços</h1>
       <div class="listas">
         <div class="lista-1">
           <ul>
-          <li>Odontopediatria</li>
-        <li>Carga imediata</li>
-        <li>Clínica geral</li>
-        <li>Lentes de contato</li>
-        <li>Clareamento denta</li>
-      </ul>
-      </div>
+            <li>Odontopediatria</li>
+            <li>Carga imediata</li>
+            <li>Clínica geral</li>
+            <li>Lentes de contato</li>
+            <li>Clareamento dental</li>
+          </ul>
+        </div>
         <div class="lista-2">
           <ul>
-        <li>Ortodontia</li>
-        <li>Prótese dentária</li>
-        <li>Cirurgia</li>
-        <li>Tratamento periodontal</li>
-        <li>Tratamento endodôntico</li>
-      </ul>
+            <li>Ortodontia</li>
+            <li>Prótese dentária</li>
+            <li>Cirurgia</li>
+            <li>Tratamento periodontal</li>
+            <li>Tratamento endodôntico</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="onda"></div>
+      <div class="onda"></div>
       
-      <div class="depoimento-box">
+      <section class="depoimento-box" aria-label="Depoimentos de clientes">
         <h1><span class="underline">Alguns de nossos clientes</span></h1>
         <div class="depoimentos-row">
           <div class="depoimento">
-          <img src="./assets/img/exemplo-3.png" alt="exemplo-3">
-          <div class="texto-depoimento">
-            <h2>Carla Menezes</h2>
-          <p>"A Dra. Michele foi muito atenciosa, explicou tudo com clareza e me deixou tranquila. Excelente atendimento!"</p>
+            <img src="./assets/img/exemplo-3.png" alt="Carla Menezes" />
+            <div class="texto-depoimento">
+              <h2>Carla Menezes</h2>
+              <p>"A Dra. Michele foi muito atenciosa, explicou tudo com clareza e me deixou tranquila. Excelente atendimento!"</p>
+            </div>
+          </div>
+          <div class="depoimento">
+            <img src="./assets/img/exemplo-5.png" alt="Juliana Prado" />
+            <div class="texto-depoimento">
+              <h2>Juliana Prado</h2>
+              <p>"Profissional cuidadosa, consultório moderno e atendimento humanizado. Me senti segura durante todo o tratamento. Recomendo!"</p>
+            </div>
+          </div>
+          <div class="depoimento">
+            <img src="./assets/img/exemplo-4.png" alt="Renato Silva" />
+            <div class="texto-depoimento">
+              <h2>Renato Silva</h2>
+              <p>"Ótimo atendimento! Fiz implante com a Dra. Michele e fiquei impressionado com o resultado. Muito competente e dedicada."</p>
+            </div>
           </div>
         </div>
-
-        <div class="depoimento">
-          <img src="./assets/img/exemplo-5.png" alt="exemplo-4">
-          <div class="texto-depoimento">
-            <h2>Juliana Prado</h2>
-          <p>"Profissional cuidadosa, consultório moderno e atendimento humanizado. Me senti segura durante todo o tratamento. Recomendo!"</p>
-          </div>
-        </div>
-
-        <div class="depoimento">
-          <img src="./assets/img/exemplo-4.png" alt="exemplo-4">
-          <div class="texto-depoimento">
-            <h2>Renato Silva</h2>
-          <p>"Ótimo atendimento! Fiz implante com a Dra. Michele e fiquei impressionado com o resultado. Muito competente e dedicada."</p>
-          </div>
-        </div>
-        </div>
-        
-        
-      </div>
-    </div>
+      </section>
+    </section>
   </main>
-  <div class="line"></div>
 
   <footer>
-    <div class="contato-box">
-      <h1>Contato</h1>
-      <div class="contato-infos">
-        <img src="./assets/img/whatsapp.png" alt="whatsapp">
-        <h5>(11) 98845-8562</h5>
+    <div class="footer-container" id="contato">
+      <div class="tratamentos">
+        <h1>Tratamentos</h1>
+        <div class="listas">
+          <div class="lista-1-tratamentos">
+            <ul>
+              <li>Odontopediatria</li>
+              <li>Carga imediata</li>
+              <li>Clínica geral</li>
+              <li>Lentes de contato</li>
+              <li>Clareamento dental</li>
+            </ul>
+          </div>
+          <div class="lista-2-tratamentos">
+            <ul>
+              <li>Ortodontia</li>
+              <li>Prótese dentária</li>
+              <li>Cirurgia</li>
+              <li>Tratamento periodontal</li>
+              <li>Tratamento endodôntico</li>
+            </ul>
+          </div>
+        </div>
+        <img src="./assets/img/logoCompleta.png" alt="logo">
       </div>
-      <div class="contato-infos">
-        <img src="./assets/img/facebook.png" alt="facebook">
-        <h5>dramicheleherreira</h5>
-      </div>
-      <div class="contato-infos">
-        <img src="./assets/img/email.png" alt="email">
-        <h5>drmichele@gmail.com</h5>
-      </div>
-      <div class="contato-infos">
-        <img src="./assets/img/instagram.png" alt="instagram">
-        <h5>@dramichele</h5>
+
+      <div class="contato-box">
+        <h1>Contato</h1>
+        <div class="contato-infos">
+          <img src="./assets/img/whatsapp.png" alt="whatsapp">
+          <a href="https://wa.me/5511986775000" target="_blank" ><h5>(11) 98845-8562</h5></a>
+        </div>
+        <div class="contato-infos">
+          <img src="./assets/img/facebook.png" alt="facebook">
+          <a href="mailto:drmichele@gmail.com" target="_blank"><h5>drmichele@gmail.com</h5></a>
+        </div>
+        <div class="contato-infos">
+          <img src="./assets/img/email.png" alt="email">
+          <h5>drmichele@gmail.com</h5>
+        </div>
+        <div class="contato-infos">
+          <img src="./assets/img/instagram.png" alt="instagram">
+          <h5>@dramichele</h5>
+        </div>
       </div>
     </div>
   </footer>

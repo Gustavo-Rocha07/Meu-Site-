@@ -286,7 +286,7 @@ nav a:hover {
    color: #fff;
    font-size: 3rem;
    font-weight: 300;
-   margin-left: 17rem;
+   margin: 0 auto;
   }
 
 .underline {

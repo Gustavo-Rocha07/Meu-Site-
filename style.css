@@ -222,6 +222,10 @@ nav ul {
     background-color: #F3F3F3;
 }
 
+.sobre-box img{
+  width: 500px;
+}
+
 .texto-sobre {
     max-width: 600px;
     

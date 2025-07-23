@@ -563,7 +563,7 @@ nav a:hover {
     height: 5rem;
     background-size: cover;
   }
-  /* Depoimentos (um embaixo do outro) */
+  
   .depoimentos-row {
     flex-direction: column;
     align-items: center;
@@ -571,18 +571,20 @@ nav a:hover {
     padding: 0 1rem;
   }
 
-  .depoimento {
-    width: 100%;
-    max-width: 22rem;
-    height: auto;
-    padding-bottom: 2rem;
+   .depoimento {
+    width: 95%;
+    max-width: 300px;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   }
 
   .depoimento img {
+    width: 100%;
     height: auto;
-    border-radius: 2rem 2rem 1rem 1rem;
+    border-radius: 2rem 2rem 0 0;
+    display: block;
   }
-
+  
   .depoimento h2 {
     font-size: 1.5rem;
     margin-top: 1rem;

@@ -385,7 +385,7 @@ nav a:hover {
 
 .contato-infos {
   display: flex;
-  margin-bottom: 0.93rem;
+  margin-bottom: 3rem;
 }
 
 .contato-infos img {
@@ -415,15 +415,105 @@ nav a:hover {
   transition: color 0.3s ease;
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #1e1e1e;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+header {
+  position: relative;
+}
+.mobile-img {
+  display: none;
+}
 @media (max-width: 768px) {
-  
+   .desktop-img {
+    display: none;
+  }
+    .mobile-img {
+    display: block;
+  }
+  header {
+    height: 70px; /* altura do header */
+    padding: 0 1rem;
+  }
+
+  header .logo {
+    height: 38px;  
+    width: auto;   
+  }
+
+  .menu-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+  }
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #1e1e1e;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Animação ao abrir */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+nav ul {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 65px;
+  right: 1rem;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+nav ul.open {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+nav li {
+    border-bottom: 0.25vh solid #1e1e1e2f;
+    padding: 0vh 0vh 1vh 2vh;
+  }
+
   .banner {
-    margin: 1rem;
+    margin: 0.5rem;
     height: auto;
     min-width: unset;
-    gap: 2rem;
+    gap: 1rem;
     padding: 2rem 1rem;
     border-radius: 1rem;
+     margin-top: -2rem; /* Remove espaço extra acima */
+    
   }
 
 .banner h1 {
@@ -451,12 +541,26 @@ nav a:hover {
     max-width: 22rem;
   }
  .destaque {
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 1rem;
-  background: #d9b24a;
-  gap: 2.5rem;
-}
+    position: relative;
+    
+  }
+
+  .destaque .coluna-imagens {
+    position: absolute;
+    bottom: -15rem; /* faz as imagens "descerem" para a próxima seção */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3rem;
+    width: auto;
+  }
+
+  .destaque .coluna-imagens img {
+    position: static; /* remove posicionamento absoluto */
+    width: 10rem;      /* tamanho proporcional */
+    height: auto;
+    border-radius: 1rem;
+  }
 
 .destaque .conteudo {
   flex-direction: column;
@@ -467,31 +571,8 @@ nav a:hover {
 .destaque .coluna-textos {
   text-align: center;
   max-width: 100%;
-  padding: 0 1rem;
-}
-
-.destaque .coluna-imagens {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-.destaque .coluna-imagens img {
-  flex: 1 1 45%;
-  max-width: 45%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
-  position: static !important;
-}
-
-
   
+}
   .destaque .coluna-textos {
     margin-left: 0;
     text-align: center;
@@ -506,10 +587,9 @@ nav a:hover {
   }
 
    .sobre-box img {
-    order: 2;
-    width: 100%;
-    max-width: 15rem;
-    margin-top: 2rem;
+    
+    width: 0%;
+    
   }
 
   .texto-sobre {
@@ -571,20 +651,18 @@ nav a:hover {
     padding: 0 1rem;
   }
 
-   .depoimento {
-    width: 95%;
-    max-width: 300px;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  .depoimento {
+    width: 100%;
+    max-width: 22rem;
+    height: auto;
+    padding-bottom: 2rem;
   }
 
   .depoimento img {
-    width: 100%;
     height: auto;
-    border-radius: 2rem 2rem 0 0;
-    display: block;
+    border-radius: 2rem 2rem 1rem 1rem;
   }
-  
+
   .depoimento h2 {
     font-size: 1.5rem;
     margin-top: 1rem;
@@ -609,48 +687,34 @@ nav a:hover {
     
   }
 
-  .listas {
-    flex-direction: column;
-    gap: 1rem;
+  .contato-box h1 {
+    margin-bottom: 2rem;
   }
-
-  .listas ul {
-    padding: 0;
-    font-size: 1rem;
-  }
-
-  .listas li {
-    margin-bottom: 0.25rem;
-  }
-
-   .contato-box {
+ .contato-box {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: center; /* Centraliza tudo */
+    gap: 0.5rem;
   }
 
   .contato-infos {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
+    align-items: center; /* Alinha ícone e texto no meio */
+    gap: 1rem;
   }
 
   .contato-infos img {
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
+    width: 2rem;  /* Deixa todos os ícones do mesmo tamanho */
+    height: 2rem;
   }
 
   .contato-infos h5 {
     font-size: 1rem;
     margin: 0;
-    text-align: left;
-    word-break: break-word;
   }
-
   .tratamentos img {
     display: none;
   }
+
 }
 

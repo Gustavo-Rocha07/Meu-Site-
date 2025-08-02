@@ -9,17 +9,23 @@
   <title>Michele Herreira</title>
 </head>
 <body>
-  <header>
-  <img src="./assets/img/logoCompleta.png" alt="logo" />
+<header>
+  <img src="./assets/img/logoCompleta.png" alt="logo" class="logo" />
 
   <nav>
-    <ul>
+    <ul id="menu">
       <li><a href="#">Home</a></li>
       <li><a href="#sobre-nos">Conheça mais</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
 
   <div style="height: 100px;"></div>
@@ -51,8 +57,10 @@
     <section class="destaque" aria-label="Destaques dos serviços">
       <div class="conteudo">
         <div class="coluna-imagens">
-          <img src="./assets/img/exemplo1.png" alt="exemplo-1" class="img-1" />
-          <img src="./assets/img/exemplo2.png" alt="exemplo-2" class="img-2" />
+          <img src="./assets/img/exemplo1.png" alt="exemplo-1" class="img-1 desktop-img" />
+          <img src="./assets/img/FOTO1-att.png" alt="exemplo-1-mobile" class="img-1 mobile-img" />
+          <img src="./assets/img/exemplo2.png" alt="exemplo-2" class="img-2 desktop-img" />
+          <img src="./assets/img/foto1 1.png" alt="exemplo-2-mobile" class="img-2 mobile-img" />
         </div>
         <div class="coluna-textos">
           <div class="bloco-texto">
@@ -124,7 +132,7 @@
           <div class="depoimento">
             <img src="./assets/img/exemplo-4.png" alt="Renato Silva" />
             <div class="texto-depoimento">
-              <h2>Renato Silva</h2>
+              <h2>Sergio Silva</h2>
               <p>"Ótimo atendimento! Fiz implante com a Dra. Michele e fiquei impressionado com o resultado. Muito competente e dedicada."</p>
             </div>
           </div>
@@ -163,20 +171,19 @@
       <div class="contato-box">
         <h1>Contato</h1>
         <div class="contato-infos">
-          <img src="./assets/img/whatsapp.png" alt="whatsapp">
-          <a href="https://wa.me/5511986775000" target="_blank" ><h5>(11) 98845-8562</h5></a>
+          <a href="https://wa.me/5511986775000" target="_blank"></a> <img src="./assets/img/whatsapp.png" alt="whatsapp"  style="width: 40px; height: 40px;"></a>
+          <a href="https://wa.me/5511986775000" target="_blank" ><h5>(11) 98677-5000</h5></a>
         </div>
         <div class="contato-infos">
-          <img src="./assets/img/facebook.png" alt="facebook">
-          <h5>drmichele@gmail.com</h5>
-        </div>
+  <a href="https://www.instagram.com/dra.michele_?igsh=cWgxZHkwMTl6NjU1" target="_blank"><img src="./assets/img/instagram.png" alt="instagram" style="width: 30px; height: 30px;">
+  </a>
+  <a href="https://www.instagram.com/dra.michele_?igsh=cWgxZHkwMTl6NjU1" target="_blank">
+    <h5>@dra.michele_</h5>
+  </a>
+</div>
         <div class="contato-infos">
-          <img src="./assets/img/email.png" alt="email">
-          <h5>drmichele@gmail.com</h5>
-        </div>
-        <div class="contato-infos">
-          <img src="./assets/img/instagram.png" alt="instagram">
-          <h5>@dramichele</h5>
+          <img src="./assets/img/facebook.png" alt="facebook" style="width: 40px; height: 40px;">
+          <h5>Michele Herreira</h5>
         </div>
       </div>
     </div>

@@ -1,16 +1,8 @@
 
-  const hamburguer = document.getElementById('hamburguer');
-  const menuLinks = document.getElementById('menu-links');
+    const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
 
-  hamburguer.addEventListener('click', () => {
-    menuLinks.classList.toggle('active');
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("open");
+    menu.classList.toggle("open");
   });
-
-  // Fecha o menu ao clicar em qualquer link
-  const navLinks = document.querySelectorAll('.links a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menuLinks.classList.remove('active');
-    });
-  });
-

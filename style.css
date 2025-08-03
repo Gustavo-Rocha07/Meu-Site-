@@ -455,7 +455,10 @@ header {
 .whatsapp-fixo:hover {
   transform: scale(1.1);
 }
-.contato-link {
+
+
+@media (max-width: 768px) {
+  .contato-link {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -482,8 +485,6 @@ header {
   background: #fff7e0;
   transform: scale(1.03);
 }
-
-@media (max-width: 768px) {
   .whatsapp-fixo {
   bottom: 15px;
   right: 15px;
@@ -645,9 +646,7 @@ nav li {
   }
 
    .sobre-box img {
-    
     width: 80%;
-    
   }
 
   .texto-sobre {

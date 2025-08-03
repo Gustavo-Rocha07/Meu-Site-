@@ -435,7 +435,65 @@ header {
 .mobile-img {
   display: none;
 }
+.whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.whatsapp-fixo img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-fixo:hover {
+  transform: scale(1.1);
+}
+.contato-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 15px;
+  border: 1px solid #d9b34c;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contato-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.contato-link h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.contato-link:hover {
+  background: #fff7e0;
+  transform: scale(1.03);
+}
+
 @media (max-width: 768px) {
+  .whatsapp-fixo {
+  bottom: 15px;
+  right: 15px;
+  padding: 8px;
+}
+
+.whatsapp-fixo img {
+  width: 35px;
+  height: 35px;
+}
    .desktop-img {
     display: none;
   }
@@ -547,17 +605,17 @@ nav li {
 
   .destaque .coluna-imagens {
     position: absolute;
-    bottom: -15rem; /* faz as imagens "descerem" para a próxima seção */
+    bottom: -13rem; /* faz as imagens "descerem" para a próxima seção */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     width: auto;
   }
 
   .destaque .coluna-imagens img {
     position: static; /* remove posicionamento absoluto */
-    width: 10rem;      /* tamanho proporcional */
+    width: 9.5rem;      /* tamanho proporcional */
     height: auto;
     border-radius: 1rem;
   }
@@ -565,13 +623,13 @@ nav li {
 .destaque .conteudo {
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  
 }
 
 .destaque .coluna-textos {
   text-align: center;
   max-width: 100%;
-  
+  margin-top: -1rem;
 }
   .destaque .coluna-textos {
     margin-left: 0;
@@ -588,7 +646,7 @@ nav li {
 
    .sobre-box img {
     
-    width: 0%;
+    width: 80%;
     
   }
 

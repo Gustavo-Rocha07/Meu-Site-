@@ -79,6 +79,36 @@ img {
   height: auto;
 }
 
+/* Estilos para imagens específicas */
+.hero-img,
+.comparison-img,
+.tratamento-img,
+.galeria-img,
+.sobre-img,
+.procedimento-detail-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fallback para imagens quebradas */
+img[src=""],
+img:not([src]) {
+  background: var(--gradient-hero);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img[src=""]::before,
+img:not([src])::before {
+  content: "Imagem não encontrada";
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 20px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -422,42 +452,12 @@ header .container {
   position: relative;
 }
 
-.hero-placeholder {
+.hero-img {
   width: 100%;
   aspect-ratio: 4/5;
-  background: var(--gradient-hero);
+  object-fit: cover;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: var(--shadow-xl);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(217, 179, 76, 0.1) 0%, rgba(184, 146, 48, 0.05) 100%);
-  border-radius: var(--radius-lg);
-}
-
-.placeholder-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: var(--primary-color);
-}
-
-.placeholder-content svg {
-  margin: 0 auto 16px;
-  opacity: 0.5;
-}
-
-.placeholder-content p {
-  font-weight: 600;
-  font-size: 1.125rem;
 }
 
 /* =========================================
@@ -576,16 +576,11 @@ header .container {
   z-index: 0;
 }
 
-.image-placeholder {
+.comparison-img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  color: var(--text-muted);
-  font-size: 1.25rem;
+  object-fit: cover;
+  display: block;
 }
 
 .slider-handle {
@@ -700,14 +695,16 @@ header .container {
   background: var(--bg-light);
 }
 
-.tratamento-image .image-placeholder {
+.tratamento-img {
   width: 100%;
   height: 100%;
-  background: var(--gradient-hero);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-color);
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.tratamento-card:hover .tratamento-img {
+  transform: scale(1.1);
 }
 
 .tratamento-content {
@@ -769,15 +766,16 @@ header .container {
   box-shadow: var(--shadow-md);
 }
 
-.galeria-item .image-placeholder {
+.galeria-img {
   width: 100%;
   height: 100%;
-  background: var(--gradient-hero);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-color);
-  font-weight: 600;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.galeria-item:hover .galeria-img {
+  transform: scale(1.05);
 }
 
 /* =========================================
@@ -1326,10 +1324,11 @@ header .container {
   box-shadow: var(--shadow-md);
 }
 
-.procedimento-details .about-img img {
+.procedimento-detail-img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
 .procedimento-benefits {

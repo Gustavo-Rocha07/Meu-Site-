@@ -287,25 +287,18 @@ function loadProcedureDetails() {
   const contentContainer = document.getElementById('proc-content');
   if (!contentContainer) return;
   
-  // Criar placeholder de imagem premium
+  // Criar imagem do tratamento
   let imgHtml = '';
   if (data.image) {
-    imgHtml = `<div class="about-img"><img src="${data.image}" alt="${data.title}"></div>`;
+    // IMAGEM: Foto ilustrativa do tratamento específico (ver comentário abaixo para cada tipo)
+    imgHtml = `<div class="about-img"><img src="${data.image}" alt="${data.title}" class="procedimento-detail-img"></div>`;
   } else {
-    imgHtml = `
-      <div class="about-img">
-        <div class="image-placeholder" style="aspect-ratio: 16/9; width: 100%; display: flex; align-items: center; justify-content: center; background: var(--gradient-hero); border-radius: var(--radius-lg);">
-          <div style="text-align: center; color: var(--primary-color);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 12px; opacity: 0.5;">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <p style="font-weight: 600; margin: 0;">Imagem do Tratamento</p>
-          </div>
-        </div>
-      </div>
-    `;
+    // IMAGEM: Foto ilustrativa do tratamento - substituir pelo caminho correto da imagem
+    // Implantes: ./assets/img/tratamentos/implantes-detalhe.jpg
+    // Ortodontia: ./assets/img/tratamentos/ortodontia-detalhe.jpg
+    // Estética: ./assets/img/tratamentos/estetica-detalhe.jpg
+    // Pediatria: ./assets/img/tratamentos/pediatria-detalhe.jpg
+    imgHtml = `<div class="about-img"><img src="./assets/img/tratamentos/${id}-detalhe.jpg" alt="${data.title}" class="procedimento-detail-img"></div>`;
   }
 
   contentContainer.innerHTML = `

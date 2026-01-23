@@ -1,167 +1,652 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Michele Herreira | Implantes Dentários com Resultado Rápido e Natural</title>
+  <meta name="description" content="Especialista em implantes dentários, carga imediata e reabilitação oral completa. Tecnologia digital, planejamento personalizado e resultados previsíveis.">
+  
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <title>Michele Herreira</title>
 </head>
+
 <body>
-  <header>
-    <img src="./assets/img/logoCompleta.png" alt="logo">
-    <nav>
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Sobre nós</a></li>
-        <li><a href="">Serviços</a></li>
-        <li><a href="">Contato</a></li>
-      </ul>
-    </nav>
+  
+  
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="./assets/img/logoCompleta.png" alt="Dra. Michele Herreira Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#tratamentos">Tratamentos</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre">Sobre a Doutora</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
-  
-  <div style="height: 100px;"></div>
-
-  <section class="banner">
-    <h1>Seu novo sorriso em até <span style="color: #D9B34C;">12 horas.</span></h1>
-    <button class="whatsappButton">Agende uma avaliação</button>
-
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div class="hero-shape"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Implantes dentários com resultado <span class="highlight">rápido, seguro e natural</span>.
+          </h1>
+          <p class="hero-subtitle">
+            Especialista em implantes, carga imediata e reabilitação oral completa. 
+            Tecnologia digital de ponta para transformar seu sorriso com segurança e previsibilidade.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/5511988458562" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              Agendar Avaliação
+            </a>
+            <a href="#resultados" class="btn btn-secondary">
+              Ver Resultados
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-placeholder">
+            <div class="placeholder-content">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <p>Foto da Doutora</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <main>
-    <div class="Cards">
-      <div class="card-diferente">
-        <img src="./assets/img/star.png" alt="star">
-        <h5>Especialista em carga imediata</h5>
-        <h6>Implantes e dentes fixos no mesmo dia, devolvendo seu sorriso imediatamente</h6>
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Por que escolher</span>
+        <h2 class="section-title">Nossos Diferenciais</h2>
+        <p class="section-subtitle">Tecnologia avançada e atendimento humanizado para resultados excepcionais</p>
       </div>
-      <div class="card-normal">
-        <img src="./assets/img/microscope.png" alt="microscope">
-        <h5>Cirurgia e Implantes</h5>
-        <h6>Procedimentos cirúrgicos avançados e implantes com tecnologia de ponta</h6>
-      </div>
-      <div class="card-normal">
-        <img src="./assets/img/heart.png" alt="heart">
-        <h5>Odontopediatria</h5>
-        <h6>Atendimento especializado e carinhoso para crianças, cuidando do sorriso desde cedo</h6>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3>Tecnologia Digital</h3>
+          <p>Planejamento 3D, scanners intraorais e guias cirúrgicos para máxima precisão e segurança.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3>Planejamento Personalizado</h3>
+          <p>Cada tratamento é único. Análise detalhada do seu caso para resultados sob medida.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h3>Resultados Previsíveis</h3>
+          <p>Simulação digital antes do tratamento. Você vê o resultado antes de começar.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </div>
+          <h3>Atendimento Humanizado</h3>
+          <p>Cuidado que vai além da técnica. Ambiente acolhedor e atenção individualizada.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Segurança Clínica</h3>
+          <p>Protocolos rigorosos de biossegurança e esterilização para sua tranquilidade.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3>Carga Imediata</h3>
+          <p>Implantes e dentes fixos no mesmo dia. Recupere seu sorriso rapidamente.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <section class="destaque">
-      <div class="conteudo">
-        <div class="coluna-imagens">
-          <img src="./assets/img/exemplo1.png" alt="exemplo-1" class="img-1">
-          <img src="./assets/img/exemplo2.png" alt="exemplo-2" class="img-2">
-        </div>
-        <div class="coluna-textos">
-          <div class="bloco-texto">
-            <h3>Excelência em Odontologia</h3>
-            <h4>Oferecemos uma ampla gama de serviços odontológicos com a mais alta qualidade e tecnologia, sempre priorizando o conforto e bem-estar de nossos pacientes.</h4>
+  <!-- BEFORE / AFTER -->
+  <section id="resultados" class="before-after">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Transformações reais</span>
+        <h2 class="section-title">Antes e Depois</h2>
+        <p class="section-subtitle">Veja resultados reais de pacientes que transformaram seus sorrisos</p>
+      </div>
+      <div class="before-after-grid">
+        <div class="before-after-item">
+          <div class="comparison-slider">
+            <div class="comparison-image-wrapper">
+              <div class="comparison-image before-image">
+                <div class="image-placeholder">
+                  <span>Antes</span>
+                </div>
+              </div>
+              <div class="comparison-image after-image">
+                <div class="image-placeholder">
+                  <span>Depois</span>
+                </div>
+              </div>
+              <div class="slider-handle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </div>
+              <div class="slider-line"></div>
+            </div>
+            <div class="comparison-label">
+              <span class="label-before">Antes</span>
+              <span class="label-after">Depois</span>
+            </div>
           </div>
-          <div class="bloco-texto">
-            <h3>Resultado de carga imediata</h3>
-            <h4>Transformação real realizada em nossa clínica utilizando a técnica de carga imediata, que permite a instalação de implantes e dentes fixos no mesmo dia.</h4>
+          <div class="comparison-info">
+            <h3>Reabilitação Completa</h3>
+            <p>Implantes com carga imediata - resultado em 24 horas</p>
+          </div>
+        </div>
+        <div class="before-after-item">
+          <div class="comparison-slider">
+            <div class="comparison-image-wrapper">
+              <div class="comparison-image before-image">
+                <div class="image-placeholder">
+                  <span>Antes</span>
+                </div>
+              </div>
+              <div class="comparison-image after-image">
+                <div class="image-placeholder">
+                  <span>Depois</span>
+                </div>
+              </div>
+              <div class="slider-handle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </div>
+              <div class="slider-line"></div>
+            </div>
+            <div class="comparison-label">
+              <span class="label-before">Antes</span>
+              <span class="label-after">Depois</span>
+            </div>
+          </div>
+          <div class="comparison-info">
+            <h3>Estética Dental</h3>
+            <p>Lentes de contato e clareamento - sorriso transformado</p>
+          </div>
+        </div>
+        <div class="before-after-item">
+          <div class="comparison-slider">
+            <div class="comparison-image-wrapper">
+              <div class="comparison-image before-image">
+                <div class="image-placeholder">
+                  <span>Antes</span>
+                </div>
+              </div>
+              <div class="comparison-image after-image">
+                <div class="image-placeholder">
+                  <span>Depois</span>
+                </div>
+              </div>
+              <div class="slider-handle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </div>
+              <div class="slider-line"></div>
+            </div>
+            <div class="comparison-label">
+              <span class="label-before">Antes</span>
+              <span class="label-after">Depois</span>
+            </div>
+          </div>
+          <div class="comparison-info">
+            <h3>Ortodontia</h3>
+            <p>Alinhamento completo - sorriso harmonioso e funcional</p>
           </div>
         </div>
       </div>
-    </section>
-
-    <div class="sobre-box">
-      <div class="texto-sobre">
-        <h1>Conheça mais</h1>
-        <hr class="divisor">
-        <p>
-          A Dra. Michele Herreira é uma profissional com anos de experiência na odontologia, especializada em carga imediata, cirurgia, implantes dentários e odontopediatria. Ao longo de sua carreira, ela se dedicou a aprimorar suas habilidades com diversos cursos de especialização em instituições nacionais e internacionais, garantindo que sua prática esteja sempre atualizada com as últimas inovações no campo odontológico.<br><br>
-          Nossa clínica é referência em carga imediata, um tratamento inovador que permite a instalação de implantes dentários e dentes fixos no mesmo dia. Também oferecemos atendimento especializado para crianças, com foco no cuidado e conforto dos pequenos. Além disso, realizamos procedimentos cirúrgicos avançados, sempre com a máxima atenção à segurança e bem-estar dos pacientes.
-        </p>
-      </div>
-      <img src="./assets/img/michele.png" alt="michele">
     </div>
+  </section>
 
-    <div class="line"></div>
+  <!-- TRATAMENTOS -->
+  <section id="tratamentos" class="tratamentos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Especialidades</span>
+        <h2 class="section-title">Nossos Tratamentos</h2>
+        <p class="section-subtitle">Soluções completas para saúde, função e estética do seu sorriso</p>
+      </div>
+      <div class="tratamentos-grid">
+        <a href="procedimento.html?id=implantes" class="tratamento-card">
+          <div class="tratamento-image">
+            <div class="image-placeholder">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="tratamento-content">
+            <h3>Implantes Dentários</h3>
+            <p>Solução definitiva para dentes perdidos com carga imediata e resultados naturais.</p>
+            <span class="tratamento-link">Saiba mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+        </a>
+        <a href="procedimento.html?id=ortodontia" class="tratamento-card">
+          <div class="tratamento-image">
+            <div class="image-placeholder">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="tratamento-content">
+            <h3>Ortodontia</h3>
+            <p>Alinhamento perfeito com aparelhos estéticos e alinhadores invisíveis.</p>
+            <span class="tratamento-link">Saiba mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+        </a>
+        <a href="procedimento.html?id=estetica" class="tratamento-card">
+          <div class="tratamento-image">
+            <div class="image-placeholder">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="tratamento-content">
+            <h3>Estética Dental</h3>
+            <p>Lentes de contato, facetas e clareamento para um sorriso de estrela.</p>
+            <span class="tratamento-link">Saiba mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+        </a>
+        <a href="procedimento.html?id=pediatria" class="tratamento-card">
+          <div class="tratamento-image">
+            <div class="image-placeholder">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="tratamento-content">
+            <h3>Odontopediatria</h3>
+            <p>Cuidado especializado e carinhoso para os sorrisos mais preciosos.</p>
+            <span class="tratamento-link">Saiba mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <div class="servicos">
-      <h1>Serviços</h1>
-      <div class="listas">
-        <div class="lista-1">
+  <!-- RESULTADOS VISUAIS -->
+  <section class="resultados-visuais">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Galeria</span>
+        <h2 class="section-title">Resultados Visuais</h2>
+        <p class="section-subtitle">Conheça alguns dos resultados alcançados em nossa clínica</p>
+      </div>
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 1</span>
+          </div>
+        </div>
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 2</span>
+          </div>
+        </div>
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 3</span>
+          </div>
+        </div>
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 4</span>
+          </div>
+        </div>
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 5</span>
+          </div>
+        </div>
+        <div class="galeria-item">
+          <div class="image-placeholder">
+            <span>Resultado 6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A DOUTORA -->
+  <section id="sobre" class="sobre-doutora">
+    <div class="container">
+      <div class="sobre-content">
+        <div class="sobre-image">
+          <div class="sobre-placeholder">
+            <div class="placeholder-content">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <p>Dra. Michele Herreira</p>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-text">
+          <span class="section-badge">Conheça</span>
+          <h2 class="section-title">Sobre a Doutora</h2>
+          <div class="sobre-description">
+            <p>
+              <strong>Dra. Michele Herreira</strong> é referência em odontologia estética e reabilitação oral, 
+              com anos de experiência dedicados à transformação de sorrisos e à melhoria da qualidade de vida de seus pacientes.
+            </p>
+            <p>
+              Especializada em <strong>Implantes Dentários</strong> e <strong>Carga Imediata</strong>, a Dra. Michele 
+              combina expertise técnica com tecnologia de ponta para oferecer resultados excepcionais. Seu compromisso 
+              com a excelência clínica e o atendimento humanizado faz dela uma das profissionais mais respeitadas da área.
+            </p>
+            <p>
+              Com formação sólida e constante atualização nas mais modernas técnicas e tecnologias digitais, 
+              cada tratamento é planejado individualmente, garantindo resultados previsíveis, seguros e naturais.
+            </p>
+          </div>
+          <div class="sobre-features">
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Especialista em Implantes</span>
+            </div>
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Carga Imediata Certificada</span>
+            </div>
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Tecnologia Digital</span>
+            </div>
+          </div>
+          <div class="sobre-cro">
+            <p><strong>CRO-SP:</strong> <span id="cro-number">XXXXXX</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Prova social</span>
+        <h2 class="section-title">O que dizem nossos pacientes</h2>
+        <p class="section-subtitle">Depoimentos reais de quem transformou o sorriso conosco</p>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card">
+          <div class="depoimento-stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <p class="depoimento-text">
+            "A Dra. Michele foi extremamente atenciosa e profissional. Explicou todo o processo com clareza 
+            e me deixou completamente tranquila. O resultado superou todas as minhas expectativas!"
+          </p>
+          <div class="depoimento-author">
+            <strong>Carla Menezes</strong>
+            <span>Implante com Carga Imediata</span>
+          </div>
+        </div>
+        <div class="depoimento-card">
+          <div class="depoimento-stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <p class="depoimento-text">
+            "Profissional cuidadosa, consultório moderno e atendimento humanizado. Me senti segura durante 
+            todo o tratamento. Recomendo sem hesitação!"
+          </p>
+          <div class="depoimento-author">
+            <strong>Juliana Prado</strong>
+            <span>Reabilitação Oral Completa</span>
+          </div>
+        </div>
+        <div class="depoimento-card">
+          <div class="depoimento-stars">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <p class="depoimento-text">
+            "Ótimo atendimento! Fiz implante com carga imediata e fiquei impressionado com o resultado. 
+            Saí com dentes fixos no mesmo dia. Profissionalismo e tecnologia de primeira!"
+          </p>
+          <div class="depoimento-author">
+            <strong>Renato Silva</strong>
+            <span>Carga Imediata</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Pronto para transformar seu sorriso?</h2>
+        <p>Agende sua avaliação e descubra como podemos ajudar você a alcançar o sorriso dos seus sonhos.</p>
+        <a href="https://wa.me/5511988458562" class="btn btn-primary btn-large">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          Agendar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contato" class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col footer-logo">
+          <img src="./assets/img/logoCompleta.png" alt="Dra. Michele Herreira Logo" style="filter: brightness(0) invert(1); width: 180px; margin-bottom: 20px;">
+          <p>Transformando vidas através de sorrisos. Excelência em odontologia estética e reabilitação oral.</p>
+          <p style="margin-top: 16px; font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);"><strong>CRO-SP:</strong> <span id="cro-number-footer">XXXXXX</span></p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
           <ul>
-          <li>Odontopediatria</li>
-        <li>Carga imediata</li>
-        <li>Clínica geral</li>
-        <li>Lentes de contato</li>
-        <li>Clareamento denta</li>
-      </ul>
-      </div>
-        <div class="lista-2">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#tratamentos">Tratamentos</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#sobre">Sobre a Doutora</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
           <ul>
-        <li>Ortodontia</li>
-        <li>Prótese dentária</li>
-        <li>Cirurgia</li>
-        <li>Tratamento periodontal</li>
-        <li>Tratamento endodôntico</li>
-      </ul>
-      </div>
-    </div>
-    <div class="onda"></div>
-      
-      <div class="depoimento-box">
-        <h1><span class="underline">Alguns de nossos clientes</span></h1>
-        <div class="depoimentos-row">
-          <div class="depoimento">
-          <img src="./assets/img/exemplo-3.png" alt="exemplo-3">
-          <div class="texto-depoimento">
-            <h2>Carla Menezes</h2>
-          <p>"A Dra. Michele foi muito atenciosa, explicou tudo com clareza e me deixou tranquila. Excelente atendimento!"</p>
+            <li>
+              <a href="tel:+5511988458562">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                (11) 98845-8562
+              </a>
+            </li>
+            <li>
+              <a href="mailto:drmichele@gmail.com">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                drmichele@gmail.com
+              </a>
+            </li>
+            <li>
+              <span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                São Paulo, SP
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Redes Sociais</h4>
+          <div class="footer-socials">
+            <a href="https://instagram.com/dramicheleherreira" target="_blank" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://facebook.com/dramicheleherreira" target="_blank" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/5511988458562" target="_blank" aria-label="WhatsApp">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
           </div>
         </div>
-
-        <div class="depoimento">
-          <img src="./assets/img/exemplo-5.png" alt="exemplo-4">
-          <div class="texto-depoimento">
-            <h2>Juliana Prado</h2>
-          <p>"Profissional cuidadosa, consultório moderno e atendimento humanizado. Me senti segura durante todo o tratamento. Recomendo!"</p>
-          </div>
-        </div>
-
-        <div class="depoimento">
-          <img src="./assets/img/exemplo-4.png" alt="exemplo-4">
-          <div class="texto-depoimento">
-            <h2>Renato Silva</h2>
-          <p>"Ótimo atendimento! Fiz implante com a Dra. Michele e fiquei impressionado com o resultado. Muito competente e dedicada."</p>
-          </div>
-        </div>
-        </div>
-        
-        
       </div>
-    </div>
-  </main>
-  <div class="line"></div>
-
-  <footer>
-    <div class="contato-box">
-      <h1>Contato</h1>
-      <div class="contato-infos">
-        <img src="./assets/img/whatsapp.png" alt="whatsapp">
-        <h5>(11) 98845-8562</h5>
-      </div>
-      <div class="contato-infos">
-        <img src="./assets/img/facebook.png" alt="facebook">
-        <h5>dramicheleherreira</h5>
-      </div>
-      <div class="contato-infos">
-        <img src="./assets/img/email.png" alt="email">
-        <h5>drmichele@gmail.com</h5>
-      </div>
-      <div class="contato-infos">
-        <img src="./assets/img/instagram.png" alt="instagram">
-        <h5>@dramichele</h5>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Dra. Michele Herreira. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
+  <!-- WHATSAPP FIXO -->
+  <a href="https://wa.me/5511988458562" class="whatsapp-fixed" aria-label="Fale conosco no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
   <script src="./assets/script.js"></script>
 </body>
+
 </html>

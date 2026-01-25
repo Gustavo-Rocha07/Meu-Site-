@@ -49,6 +49,7 @@ class BeforeAfterSlider {
     this.handle = container.querySelector('.slider-handle');
     this.beforeImage = container.querySelector('.before-image');
     this.isDragging = false;
+    this.animationFrame = null;
     
     this.init();
   }
@@ -62,14 +63,14 @@ class BeforeAfterSlider {
     document.addEventListener('mouseup', () => this.stopDrag());
     
     // Touch events
-    this.handle.addEventListener('touchstart', (e) => this.startDrag(e));
-    this.wrapper.addEventListener('touchmove', (e) => this.onDrag(e));
+    this.handle.addEventListener('touchstart', (e) => this.startDrag(e), { passive: false });
+    this.wrapper.addEventListener('touchmove', (e) => this.onDrag(e), { passive: false });
     document.addEventListener('touchend', () => this.stopDrag());
     
     // Click to move
     this.wrapper.addEventListener('click', (e) => {
       if (!this.isDragging) {
-        this.moveSlider(e);
+        this.moveSlider(e, true);
       }
     });
   }
@@ -77,6 +78,7 @@ class BeforeAfterSlider {
   startDrag(e) {
     this.isDragging = true;
     this.container.style.cursor = 'grabbing';
+    this.beforeImage.classList.add('dragging');
     if (this.handle) {
       this.handle.style.cursor = 'grabbing';
     }
@@ -85,34 +87,66 @@ class BeforeAfterSlider {
   stopDrag() {
     this.isDragging = false;
     this.container.style.cursor = 'grab';
+    this.beforeImage.classList.remove('dragging');
     if (this.handle) {
       this.handle.style.cursor = 'grab';
+    }
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+      this.animationFrame = null;
     }
   }
   
   onDrag(e) {
     if (!this.isDragging) return;
     e.preventDefault();
-    this.moveSlider(e);
+    
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+    }
+    
+    this.animationFrame = requestAnimationFrame(() => {
+      this.moveSlider(e, false);
+    });
   }
   
-  moveSlider(e) {
+  moveSlider(e, smooth = false) {
     const rect = this.wrapper.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const x = clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
     
-    this.beforeImage.style.width = `${percentage}%`;
+    // Usar clip-path para melhor performance e suavidade
+    this.beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    this.beforeImage.style.width = '100%';
     
     if (this.handle) {
       this.handle.style.left = `${percentage}%`;
       this.handle.style.transform = 'translate(-50%, -50%)';
+      if (!smooth) {
+        this.handle.style.transition = 'none';
+      }
     }
     
     const sliderLine = this.wrapper.querySelector('.slider-line');
     if (sliderLine) {
       sliderLine.style.left = `${percentage}%`;
       sliderLine.style.transform = 'translateX(-50%)';
+      if (!smooth) {
+        sliderLine.style.transition = 'none';
+      }
+    }
+    
+    // Restaurar transição quando não estiver arrastando
+    if (smooth) {
+      setTimeout(() => {
+        if (this.handle) {
+          this.handle.style.transition = '';
+        }
+        if (sliderLine) {
+          sliderLine.style.transition = '';
+        }
+      }, 50);
     }
   }
 }
@@ -245,7 +279,7 @@ const proceduresData = {
   'pediatria': {
     title: 'Odontopediatria',
     subtitle: 'Cuidado especializado para os sorrisos mais preciosos.',
-    image: './assets/img/heart.png',
+    image: './assets/img/odontopediatria.jpeg',
     description: `
       <h2>Prevenção e Cuidado desde Cedo</h2>
       <p>Nosso ambiente é preparado para que a criança se sinta segura e acolhida. O objetivo é criar uma geração livre de cáries e sem medo de dentista.</p>

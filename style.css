@@ -569,9 +569,15 @@ header .container {
 }
 
 .before-image {
-  width: 50%;
+  width: 100%;
   z-index: 1;
-  transition: width 0.1s ease;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: clip-path;
+}
+
+.before-image.dragging {
+  transition: none;
 }
 
 .after-image {
@@ -584,6 +590,8 @@ header .container {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1);
+  will-change: auto;
 }
 
 .slider-handle {
@@ -603,11 +611,13 @@ header .container {
   gap: 2px;
   color: var(--primary-color);
   cursor: grab;
-  transition: left 0.1s ease;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left;
 }
 
 .slider-handle:active {
   cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .slider-line {
@@ -620,7 +630,8 @@ header .container {
   transform: translateX(-50%);
   z-index: 9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.1s ease;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left;
 }
 
 .comparison-label {

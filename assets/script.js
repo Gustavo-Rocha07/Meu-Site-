@@ -331,3 +331,48 @@ function loadProcedureDetails() {
 if (document.getElementById('proc-title')) {
   document.addEventListener('DOMContentLoaded', loadProcedureDetails);
 }
+
+// =========================================
+// CARROSSEL DE DEPOIMENTOS
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.depoimentos-carousel');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+  
+  if (!carousel || !prevBtn || !nextBtn) return;
+  
+  const cardWidth = 320;
+  const gap = 24;
+  const scrollAmount = cardWidth + gap;
+  
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Atualizar visibilidade dos botões baseado na posição do scroll
+  const updateButtons = () => {
+    const isAtStart = carousel.scrollLeft <= 0;
+    const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
+    
+    prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+    prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+    
+    nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+    nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+  };
+  
+  carousel.addEventListener('scroll', updateButtons);
+  updateButtons();
+});

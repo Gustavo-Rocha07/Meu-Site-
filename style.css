@@ -907,10 +907,32 @@ header .container {
   color: var(--text-dark);
 }
 
-.depoimentos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+.depoimentos-carousel-wrapper {
+  position: relative;
+  margin-top: 50px;
+}
+
+.depoimentos-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 20px 0;
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.depoimentos-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.depoimentos-carousel > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
 }
 
 .depoimento-card {
@@ -956,6 +978,99 @@ header .container {
 .depoimento-author span {
   color: var(--text-muted);
   font-size: 0.875rem;
+}
+
+/* Depoimentos em Vídeo */
+.depoimento-video {
+  padding: 0;
+  overflow: hidden;
+}
+
+.depoimento-video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg-light);
+  position: relative;
+  overflow: hidden;
+  max-height: 240px;
+}
+
+.depoimento-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.depoimento-video .depoimento-author {
+  padding: 24px 40px;
+  background: var(--white);
+}
+
+/* Botões do Carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: var(--white);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-base);
+}
+
+.carousel-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-prev {
+  left: -24px;
+}
+
+.carousel-btn-next {
+  right: -24px;
+}
+
+@media (max-width: 768px) {
+  .depoimento-card {
+    width: 280px;
+    min-width: 280px;
+    padding: 24px;
+  }
+  
+  .depoimento-video .depoimento-author {
+    padding: 16px 20px;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-btn {
+    display: none;
+  }
+  
+  .depoimentos-carousel {
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .depoimento-video-wrapper {
+    max-height: 200px;
+  }
 }
 
 /* =========================================
@@ -1643,9 +1758,6 @@ header .container {
   
   .diferenciais-grid,
   .tratamentos-grid,
-  .depoimentos-grid {
-    grid-template-columns: 1fr;
-  }
   
   .before-after-grid {
     grid-template-columns: 1fr;

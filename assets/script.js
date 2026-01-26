@@ -228,7 +228,7 @@ const proceduresData = {
   'implantes': {
     title: 'Implantes Dentários',
     subtitle: 'Recupere sua autoestima e a função mastigatória com segurança.',
-    image: './assets/img/exemplo1.png',
+    image: './assets/img/cirurgia-2.jpeg',
     description: `
       <h2>O que são Implantes Dentários?</h2>
       <p>Os implantes dentários são pinos de titânio posicionados cirurgicamente no osso maxilar, abaixo da margem gengival. Eles servem como bases sólidas para a substituição de dentes perdidos.</p>
@@ -247,7 +247,7 @@ const proceduresData = {
   'ortodontia': {
     title: 'Ortodontia',
     subtitle: 'Alinhamento perfeito para um sorriso harmonioso.',
-    image: './assets/img/exemplo2.png',
+    image: './assets/img/lente.png',
     description: `
       <h2>Sorria com Confiança</h2>
       <p>A ortodontia vai além da estética; dentes alinhados são fundamentais para a saúde bucal, facilitando a higienização e prevenindo problemas na articulação.</p>
@@ -257,22 +257,6 @@ const proceduresData = {
         <li>✅ Aparelhos Estéticos (Safira/Porcelana)</li>
         <li>✅ Alinhadores Invisíveis</li>
         <li>✅ Aparelhos Convencionais Metálicos</li>
-      </ul>
-    `
-  },
-  'estetica': {
-    title: 'Estética Dental',
-    subtitle: 'Lentes de contato e clareamento para um sorriso de estrela.',
-    image: './assets/img/exemplo2.png',
-    description: `
-      <h2>Transformação do Sorriso</h2>
-      <p>Procedimentos minimamente invasivos que corrigem cor, formato e tamanho dos dentes, proporcionando um sorriso harmônico e brilhante.</p>
-      <br>
-      <h3>Serviços Inclusos</h3>
-      <ul>
-        <li>✅ Lentes de Contato Dental</li>
-        <li>✅ Facetas de Porcelana</li>
-        <li>✅ Clareamento à Laser e Caseiro</li>
       </ul>
     `
   },

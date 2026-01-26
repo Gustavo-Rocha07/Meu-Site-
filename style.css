@@ -88,6 +88,8 @@ img {
 .tratamento-img,
 .galeria-img,
 .sobre-img,
+.sobre-video,
+.sobre-img-fallback,
 .procedimento-detail-img {
   max-width: 100%;
   height: auto;
@@ -811,27 +813,20 @@ header .container {
 
 .sobre-image {
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
 }
 
-.sobre-placeholder {
+
+
+.sobre-img-fallback {
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--gradient-hero);
+  object-fit: cover;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: var(--shadow-xl);
-  position: relative;
-  overflow: hidden;
-}
-
-.sobre-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(217, 179, 76, 0.1) 0%, rgba(184, 146, 48, 0.05) 100%);
-  border-radius: var(--radius-lg);
+  display: block;
 }
 
 .sobre-text .section-badge {
@@ -1548,6 +1543,14 @@ header .container {
   
   .sobre-content {
     grid-template-columns: 1fr;
+  }
+  
+  .sobre-text {
+    order: -1;
+  }
+  
+  .sobre-image {
+    order: 1;
   }
   
   .footer-content {

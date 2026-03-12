@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-mark">MH</span>
+        <span class="sidebar-logo-text">Clínica Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <div class="nav-section-title">Conteúdo</div>
+        <a href="tratamentos.html" class="nav-item">
+          <span class="nav-icon">💉</span>
+          <span class="nav-label">Tratamentos</span>
+        </a>
+        <a href="depoimentos.html" class="nav-item">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Depoimentos</span>
+        </a>
+        <a href="galeria.html" class="nav-item active">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">Galeria de Fotos</span>
+        </a>
+
+        <div class="nav-section-title">Operacional</div>
+        <a href="agendamentos.html" class="nav-item">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">Agendamentos</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">👥</span>
+          <span class="nav-label">Pacientes</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+
+        <div class="nav-section-title">Sistema</div>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configurações</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+      </nav>
+
+      <button class="sidebar-logout" id="btn-logout">
+        Sair
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Galeria de fotos</h1>
+          <p>Gerencie as imagens utilizadas no site.</p>
+        </div>
+      </header>
+
+      <section class="main-content">
+        <div class="card">
+          <div class="card-header">
+            <h2>Adicionar imagem</h2>
+          </div>
+          <div class="card-body">
+            <form id="form-galeria" class="inline-form">
+              <div class="form-group">
+                <label for="galeria-imagem">URL da imagem</label>
+                <input type="text" id="galeria-imagem" placeholder="https://..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="galeria-descricao">Descrição</label>
+                <input type="text" id="galeria-descricao" placeholder="Ex.: Antes e depois - implante" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Adicionar imagem</button>
+            </form>
+            <p class="form-hint">No futuro será possível fazer upload direto de arquivos.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Imagens cadastradas</h2>
+          </div>
+          <div class="card-body">
+            <div class="gallery-grid" id="galeria-lista">
+              <!-- preenchido via JS -->
+            </div>
+            <p class="table-empty" id="galeria-empty-msg">Nenhuma imagem cadastrada ainda.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

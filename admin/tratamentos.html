@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tratamentos | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-mark">MH</span>
+        <span class="sidebar-logo-text">Clínica Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <div class="nav-section-title">Conteúdo</div>
+        <a href="tratamentos.html" class="nav-item active">
+          <span class="nav-icon">💉</span>
+          <span class="nav-label">Tratamentos</span>
+        </a>
+        <a href="depoimentos.html" class="nav-item">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Depoimentos</span>
+        </a>
+        <a href="galeria.html" class="nav-item">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">Galeria de Fotos</span>
+        </a>
+
+        <div class="nav-section-title">Operacional</div>
+        <a href="agendamentos.html" class="nav-item">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">Agendamentos</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">👥</span>
+          <span class="nav-label">Pacientes</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+
+        <div class="nav-section-title">Sistema</div>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configurações</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+      </nav>
+
+      <button class="sidebar-logout" id="btn-logout">
+        Sair
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Tratamentos</h1>
+          <p>Gerencie os tratamentos exibidos no site.</p>
+        </div>
+      </header>
+
+      <section class="main-content">
+        <div class="toolbar">
+          <button class="btn btn-primary" data-open-modal="modal-tratamento">
+            + Adicionar tratamento
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Lista de tratamentos</h2>
+          </div>
+          <div class="card-body">
+            <table class="table" id="table-tratamentos">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Imagem</th>
+                  <th style="width: 120px;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- preenchido via JS -->
+              </tbody>
+            </table>
+            <p class="table-empty" id="tratamentos-empty-msg">Nenhum tratamento cadastrado ainda.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: TRATAMENTO -->
+  <div class="modal" id="modal-tratamento" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modal-tratamento-title">Novo tratamento</h2>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </header>
+      <form id="form-tratamento" class="modal-body">
+        <input type="hidden" id="tratamento-id">
+
+        <div class="form-group">
+          <label for="tratamento-nome">Nome do tratamento</label>
+          <input type="text" id="tratamento-nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tratamento-descricao">Descrição</label>
+          <textarea id="tratamento-descricao" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="tratamento-imagem">URL da imagem</label>
+          <input type="text" id="tratamento-imagem" placeholder="https://...">
+          <small class="form-hint">No futuro esta imagem poderá ser enviada para o servidor.</small>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

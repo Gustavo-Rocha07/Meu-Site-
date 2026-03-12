@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento Online | Dra. Michele Herreira</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="agendamento-body">
+  <header class="agendamento-header">
+    <div class="container agendamento-header-content">
+      <a href="index.html" class="agendamento-logo">
+        <img src="./assets/img/logoCompleta.png" alt="Logo da clínica">
+      </a>
+      <div class="agendamento-header-right">
+        <span class="agendamento-header-text">Agendamento Online</span>
+        <a href="index.html" class="btn btn-secondary agendamento-back-btn">
+          Voltar para o site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="agendamento-main">
+    <div class="container agendamento-layout">
+      <aside class="agendamento-steps">
+        <h1>Agendar consulta</h1>
+        <p>Preencha em poucos passos. Depois vamos confirmar o horário com você.</p>
+        <ol>
+          <li data-step-indicator="1" class="is-active">Procedimento</li>
+          <li data-step-indicator="2">Data</li>
+          <li data-step-indicator="3">Horário</li>
+          <li data-step-indicator="4">Seus dados</li>
+          <li data-step-indicator="5">Confirmação</li>
+        </ol>
+      </aside>
+
+      <section class="agendamento-content">
+        <!-- STEP 1: PROCEDIMENTO -->
+        <section class="step-panel is-active" data-step="1">
+          <h2>1. Escolha o procedimento</h2>
+          <p class="step-subtitle">Isso nos ajuda a separar o tempo correto na agenda.</p>
+          <form id="step1-form" class="step-form">
+            <div class="procedure-grid">
+              <label class="procedure-card">
+                <input type="radio" name="procedimento" value="Avaliação para clareamento" required>
+                <span class="procedure-title">Avaliação para clareamento</span>
+                <span class="procedure-desc">Indicado para quem deseja deixar os dentes mais claros.</span>
+              </label>
+              <label class="procedure-card">
+                <input type="radio" name="procedimento" value="Avaliação para implantes">
+                <span class="procedure-title">Avaliação para implantes</span>
+                <span class="procedure-desc">Para casos de perda dentária e reabilitação com implantes.</span>
+              </label>
+              <label class="procedure-card">
+                <input type="radio" name="procedimento" value="Avaliação geral">
+                <span class="procedure-title">Avaliação geral</span>
+                <span class="procedure-desc">Check-up completo da saúde bucal.</span>
+              </label>
+              <label class="procedure-card">
+                <input type="radio" name="procedimento" value="Avaliação estética">
+                <span class="procedure-title">Avaliação estética</span>
+                <span class="procedure-desc">Foco em sorriso, lentes de contato e harmonização.</span>
+              </label>
+            </div>
+            <div class="step-actions">
+              <button type="submit" class="btn btn-primary btn-large">Continuar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- STEP 2: DATA -->
+        <section class="step-panel" data-step="2">
+          <h2>2. Escolha a data</h2>
+          <p class="step-subtitle">Mostraremos apenas dias disponíveis conforme a agenda da clínica.</p>
+          <div class="calendar-placeholder">
+            <p>Calendário interativo da agenda da clínica ficará aqui.</p>
+            <p class="hint">Por enquanto, escolha uma data no campo abaixo. Em breve, vamos conectar com os horários reais do banco de dados.</p>
+          </div>
+          <form id="step2-form" class="step-form">
+            <div class="agendar-field">
+              <label for="step2-date">Data desejada</label>
+              <input type="date" id="step2-date" required>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+              <button type="submit" class="btn btn-primary btn-large">Continuar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- STEP 3: HORÁRIO -->
+        <section class="step-panel" data-step="3">
+          <h2>3. Escolha o horário</h2>
+          <p class="step-subtitle">Apenas os horários livres para o dia escolhido serão exibidos.</p>
+          <div id="time-slots" class="time-slots">
+            <!-- preenchido via JS; por enquanto, horários mockados -->
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+            <button type="button" class="btn btn-primary btn-large" id="step3-next" disabled>Continuar</button>
+          </div>
+        </section>
+
+        <!-- STEP 4: DADOS DO PACIENTE -->
+        <section class="step-panel" data-step="4">
+          <h2>4. Seus dados</h2>
+          <p class="step-subtitle">Usaremos esses dados apenas para contato sobre este agendamento.</p>
+          <form id="step4-form" class="step-form">
+            <div class="agendar-form-row">
+              <div class="agendar-field">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" required>
+              </div>
+              <div class="agendar-field">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" required>
+              </div>
+            </div>
+            <div class="agendar-form-row">
+              <div class="agendar-field">
+                <label for="data_nascimento">Data de nascimento</label>
+                <input type="date" id="data_nascimento" required>
+              </div>
+              <div class="agendar-field">
+                <label for="email">E-mail (opcional)</label>
+                <input type="email" id="email">
+              </div>
+            </div>
+            <div class="agendar-form-row">
+              <div class="agendar-field">
+                <label for="observacoes">Observações (opcional)</label>
+                <textarea id="observacoes" rows="3" placeholder="Conte rapidamente seu caso ou preferências de horário."></textarea>
+              </div>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+              <button type="submit" class="btn btn-primary btn-large">Continuar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- STEP 5: CONFIRMAÇÃO -->
+        <section class="step-panel" data-step="5">
+          <h2>5. Confirmar agendamento</h2>
+          <p class="step-subtitle">Revise as informações antes de enviar.</p>
+          <div class="confirm-card">
+            <dl>
+              <div>
+                <dt>Procedimento</dt>
+                <dd id="resumo-procedimento">—</dd>
+              </div>
+              <div>
+                <dt>Data</dt>
+                <dd id="resumo-data">—</dd>
+              </div>
+              <div>
+                <dt>Horário</dt>
+                <dd id="resumo-hora">—</dd>
+              </div>
+              <div>
+                <dt>Paciente</dt>
+                <dd id="resumo-paciente">—</dd>
+              </div>
+            </dl>
+            <p class="agendar-disclaimer">
+              Após confirmar, sua solicitação será registrada com status <strong>pendente</strong>. Nossa equipe entrará em contato para validar o melhor horário e enviar as orientações.
+            </p>
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+            <button type="button" class="btn btn-primary btn-large" id="btn-confirmar">
+              Confirmar agendamento
+            </button>
+          </div>
+          <p class="agendar-success" id="mensagem-sucesso" hidden>
+            Pronto! Seu pedido de agendamento foi registrado. Em breve nossa equipe vai te responder pelo WhatsApp ou e-mail.
+          </p>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    window.supabase = supabase.createClient(
+      'https://yrvprsahrehavxyoxkwx.supabase.co',
+      'sb_publishable_7lq8m9-pxAiLHNpU1klUrQ_dPj6ERo-'
+    );
+  </script>
+  <script src="assets/agendamento.js"></script>
+</body>
+</html>
+

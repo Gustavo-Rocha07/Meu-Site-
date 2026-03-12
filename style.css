@@ -215,6 +215,15 @@ button {
   color: var(--white);
 }
 
+.btn-outline {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn-outline:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
 .btn-large {
   padding: 20px 40px;
   font-size: 1.125rem;
@@ -1082,6 +1091,378 @@ header .container {
   background: var(--gradient-primary);
   color: var(--white);
   text-align: center;
+}
+
+/* =========================================
+   AGENDAR ONLINE
+   ========================================= */
+
+.agendar-online {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+}
+
+.agendar-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.agendar-form {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.agendar-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.agendar-form-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.agendar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.agendar-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.agendar-field input,
+.agendar-field select,
+.agendar-field textarea {
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-base);
+}
+
+.agendar-field textarea {
+  border-radius: 16px;
+  resize: vertical;
+  min-height: 90px;
+}
+
+.agendar-field input:focus,
+.agendar-field select:focus,
+.agendar-field textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.15);
+}
+
+.agendar-actions {
+  margin-top: 20px;
+}
+
+.agendar-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.agendar-disclaimer {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.agendar-success {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #15803d;
+}
+
+.agendar-side {
+  padding: 24px 20px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--primary-color), #6366f1);
+  color: #f9fafb;
+  box-shadow: var(--shadow-lg);
+}
+
+.agendar-side h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.agendar-side p {
+  font-size: 0.98rem;
+  margin-bottom: 18px;
+}
+
+.agendar-side .btn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.agendar-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.agendar-steps li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 960px) {
+  .agendar-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agendar-form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* =========================================
+   PÁGINA DE AGENDAMENTO (agendamento.html)
+   ========================================= */
+
+.agendamento-body {
+  background: var(--bg-light-alt);
+}
+
+.agendamento-header {
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.agendamento-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.agendamento-logo img {
+  height: 42px;
+  width: auto;
+}
+
+.agendamento-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agendamento-header-text {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.agendamento-back-btn {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+}
+
+.agendamento-main {
+  padding: 40px 0 80px;
+}
+
+.agendamento-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: 40px;
+}
+
+.agendamento-steps h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.agendamento-steps p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.agendamento-steps ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agendamento-steps li {
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  background: rgba(0,0,0,0.03);
+}
+
+.agendamento-steps li.is-active {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.agendamento-content {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px 24px 28px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.step-panel {
+  display: none;
+}
+
+.step-panel.is-active {
+  display: block;
+}
+
+.step-panel h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.step-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.step-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.procedure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.procedure-card {
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.procedure-card input {
+  display: none;
+}
+
+.procedure-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.procedure-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.procedure-card input:checked + .procedure-title,
+.procedure-card input:checked + .procedure-title + .procedure-desc {
+  color: var(--primary-color);
+}
+
+.step-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.calendar-placeholder {
+  border-radius: 16px;
+  border: 1px dashed rgba(15, 23, 42, 0.15);
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.calendar-placeholder .hint {
+  margin-top: 6px;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.slot-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.slot-btn.is-selected,
+.slot-btn:hover {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.confirm-card {
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 18px 16px 16px;
+  margin-bottom: 20px;
+}
+
+.confirm-card dl {
+  margin: 0 0 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+}
+
+.confirm-card dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+}
+
+.confirm-card dd {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 960px) {
+  .agendamento-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .procedure-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .cta-content h2 {

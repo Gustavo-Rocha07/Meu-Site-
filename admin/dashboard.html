@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-mark">MH</span>
+        <span class="sidebar-logo-text">Clínica Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active" data-section="dashboard">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <div class="nav-section-title">Conteúdo</div>
+        <a href="tratamentos.html" class="nav-item">
+          <span class="nav-icon">💉</span>
+          <span class="nav-label">Tratamentos</span>
+        </a>
+        <a href="depoimentos.html" class="nav-item">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Depoimentos</span>
+        </a>
+        <a href="galeria.html" class="nav-item">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">Galeria de Fotos</span>
+        </a>
+
+        <div class="nav-section-title">Operacional</div>
+        <a href="agendamentos.html" class="nav-item">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">Agendamentos</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">👥</span>
+          <span class="nav-label">Pacientes</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+
+        <div class="nav-section-title">Sistema</div>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configurações</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+      </nav>
+
+      <button class="sidebar-logout" id="btn-logout">
+        Sair
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Visão geral da operação da clínica.</p>
+        </div>
+        <div class="user-pill">
+          <span class="user-avatar">A</span>
+          <div class="user-info">
+            <span class="user-name">Administrador</span>
+            <span class="user-role">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="main-content">
+        <div class="cards-grid">
+          <article class="card card-metric">
+            <div class="card-header">
+              <h2>Agendamentos hoje</h2>
+            </div>
+            <div class="card-body">
+              <div class="metric-value" id="metric-today-appointments">0</div>
+              <p class="metric-caption">Pacientes esperados hoje</p>
+            </div>
+          </article>
+
+          <article class="card card-metric">
+            <div class="card-header">
+              <h2>Agendamentos na semana</h2>
+            </div>
+            <div class="card-body">
+              <div class="metric-value" id="metric-week-appointments">0</div>
+              <p class="metric-caption">Total de reservas até domingo</p>
+            </div>
+          </article>
+
+          <article class="card card-metric">
+            <div class="card-header">
+              <h2>Pacientes novos</h2>
+            </div>
+            <div class="card-body">
+              <div class="metric-value" id="metric-new-patients">0</div>
+              <p class="metric-caption">Últimos 30 dias</p>
+            </div>
+          </article>
+
+          <article class="card card-metric">
+            <div class="card-header">
+              <h2>Mensagens pendentes</h2>
+            </div>
+            <div class="card-body">
+              <div class="metric-value" id="metric-pending-messages">0</div>
+              <p class="metric-caption">Formulário de contato</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <h2>Resumo de agendamentos</h2>
+            </div>
+            <div class="card-body">
+              <div class="placeholder-chart">
+                <span>Área reservada para gráficos (futuro)</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h2>Próximos horários</h2>
+            </div>
+            <div class="card-body">
+              <ul class="simple-list" id="next-appointments-list">
+                <!-- preenchido via JS -->
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depoimentos | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-mark">MH</span>
+        <span class="sidebar-logo-text">Clínica Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <div class="nav-section-title">Conteúdo</div>
+        <a href="tratamentos.html" class="nav-item">
+          <span class="nav-icon">💉</span>
+          <span class="nav-label">Tratamentos</span>
+        </a>
+        <a href="depoimentos.html" class="nav-item active">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Depoimentos</span>
+        </a>
+        <a href="galeria.html" class="nav-item">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">Galeria de Fotos</span>
+        </a>
+
+        <div class="nav-section-title">Operacional</div>
+        <a href="agendamentos.html" class="nav-item">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">Agendamentos</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">👥</span>
+          <span class="nav-label">Pacientes</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+
+        <div class="nav-section-title">Sistema</div>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configurações</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+      </nav>
+
+      <button class="sidebar-logout" id="btn-logout">
+        Sair
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Depoimentos</h1>
+          <p>Gerencie os depoimentos exibidos no site.</p>
+        </div>
+      </header>
+
+      <section class="main-content">
+        <div class="toolbar">
+          <button class="btn btn-primary" data-open-modal="modal-depoimento">
+            + Adicionar depoimento
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Lista de depoimentos</h2>
+          </div>
+          <div class="card-body">
+            <table class="table" id="table-depoimentos">
+              <thead>
+                <tr>
+                  <th>Paciente</th>
+                  <th>Comentário</th>
+                  <th>Nota</th>
+                  <th style="width: 120px;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- preenchido via JS -->
+              </tbody>
+            </table>
+            <p class="table-empty" id="depoimentos-empty-msg">Nenhum depoimento cadastrado ainda.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: DEPOIMENTO -->
+  <div class="modal" id="modal-depoimento" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modal-depoimento-title">Novo depoimento</h2>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </header>
+      <form id="form-depoimento" class="modal-body">
+        <input type="hidden" id="depoimento-id">
+
+        <div class="form-group">
+          <label for="depoimento-nome">Nome do paciente</label>
+          <input type="text" id="depoimento-nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="depoimento-foto">URL da foto</label>
+          <input type="text" id="depoimento-foto" placeholder="https://...">
+          <small class="form-hint">No futuro a foto será enviada para o servidor.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="depoimento-comentario">Comentário</label>
+          <textarea id="depoimento-comentario" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="depoimento-nota">Nota</label>
+          <select id="depoimento-nota" required>
+            <option value="">Selecione...</option>
+            <option value="1">1 estrela</option>
+            <option value="2">2 estrelas</option>
+            <option value="3">3 estrelas</option>
+            <option value="4">4 estrelas</option>
+            <option value="5">5 estrelas</option>
+          </select>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

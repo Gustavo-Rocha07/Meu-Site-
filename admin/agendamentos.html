@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamentos | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-mark">MH</span>
+        <span class="sidebar-logo-text">Clínica Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <div class="nav-section-title">Conteúdo</div>
+        <a href="tratamentos.html" class="nav-item">
+          <span class="nav-icon">💉</span>
+          <span class="nav-label">Tratamentos</span>
+        </a>
+        <a href="depoimentos.html" class="nav-item">
+          <span class="nav-icon">💬</span>
+          <span class="nav-label">Depoimentos</span>
+        </a>
+        <a href="galeria.html" class="nav-item">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">Galeria de Fotos</span>
+        </a>
+
+        <div class="nav-section-title">Operacional</div>
+        <a href="agendamentos.html" class="nav-item active">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">Agendamentos</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">👥</span>
+          <span class="nav-label">Pacientes</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+
+        <div class="nav-section-title">Sistema</div>
+        <a href="#" class="nav-item disabled">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configurações</span>
+          <span class="badge badge-soon">em breve</span>
+        </a>
+      </nav>
+
+      <button class="sidebar-logout" id="btn-logout">
+        Sair
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Agendamentos</h1>
+          <p>Controle e acompanhe os horários da clínica.</p>
+        </div>
+      </header>
+
+      <section class="main-content">
+        <div class="card">
+          <div class="card-header card-header-row">
+            <div>
+              <h2>Novo agendamento</h2>
+              <p class="card-subtitle">Cadastre manualmente um horário para o paciente.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="form-novo-agendamento" class="inline-form">
+              <div class="form-group">
+                <label for="novo-nome">Paciente</label>
+                <input type="text" id="novo-nome" required placeholder="Nome completo">
+              </div>
+              <div class="form-group">
+                <label for="novo-telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="novo-telefone" required placeholder="(11) 99999-9999">
+              </div>
+              <div class="form-group">
+                <label for="novo-procedimento">Procedimento</label>
+                <input type="text" id="novo-procedimento" required placeholder="Ex.: Implante unitário">
+              </div>
+              <div class="form-group">
+                <label for="novo-data">Data</label>
+                <input type="date" id="novo-data" required>
+              </div>
+              <div class="form-group">
+                <label for="novo-hora">Hora</label>
+                <input type="time" id="novo-hora" required>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Salvar agendamento
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header card-header-row">
+            <div>
+              <h2>Próximos agendamentos</h2>
+              <p class="card-subtitle">Visualização em lista. Estrutura preparada para futuro calendário.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table" id="table-agendamentos">
+              <thead>
+                <tr>
+                  <th>Paciente</th>
+                  <th>Telefone</th>
+                  <th>Procedimento</th>
+                  <th>Data</th>
+                  <th>Hora</th>
+                  <th>Status</th>
+                  <th style="width: 120px;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- preenchido via JS -->
+              </tbody>
+            </table>
+            <p class="table-empty" id="agendamentos-empty-msg">Nenhum agendamento cadastrado ainda.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: EDITAR AGENDAMENTO (STATUS) -->
+  <div class="modal" id="modal-agendamento" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Atualizar status</h2>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </header>
+      <form id="form-agendamento" class="modal-body">
+        <input type="hidden" id="agendamento-id">
+
+        <div class="form-group">
+          <label for="agendamento-status">Status</label>
+          <select id="agendamento-status" required>
+            <option value="pendente">Pendente</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="realizado">Realizado</option>
+          </select>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

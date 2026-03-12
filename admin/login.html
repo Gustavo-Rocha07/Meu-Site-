@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Painel da Clínica</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="auth-body">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <span class="auth-logo-mark">MH</span>
+        <div class="auth-logo-text">
+          <span class="auth-logo-title">Painel da Clínica</span>
+          <span class="auth-logo-subtitle">Acesso restrito</span>
+        </div>
+      </div>
+
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="admin@clinica.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+
+        <p class="auth-hint">
+          Demonstração: <strong>admin@clinica.com</strong> / <strong>admin123</strong>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

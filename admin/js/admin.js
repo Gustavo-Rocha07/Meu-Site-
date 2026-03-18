@@ -178,30 +178,46 @@ function handleTratamentosPage() {
 
 // Depoimentos -------------------------------------------------------------
 
-const KEY_DEPOIMENTOS = 'admin_depoimentos';
+const TESTIMONIALS_TABLE = 'testimonials';
 
-function renderDepoimentos() {
+async function renderDepoimentos() {
   const tableBody = document.querySelector('#table-depoimentos tbody');
   if (!tableBody) return;
 
   const emptyMsg = document.getElementById('depoimentos-empty-msg');
-  const items = loadCollection(KEY_DEPOIMENTOS);
+
+  if (!window.supabase) {
+    console.warn('Supabase não disponível para depoimentos.');
+    if (emptyMsg) emptyMsg.style.display = 'block';
+    return;
+  }
 
   tableBody.innerHTML = '';
+  if (emptyMsg) emptyMsg.style.display = 'block';
 
-  if (!items.length) {
-    if (emptyMsg) emptyMsg.style.display = 'block';
+  const { data, error } = await window.supabase
+    .from(TESTIMONIALS_TABLE)
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Erro ao carregar depoimentos:', error);
+    return;
+  }
+
+  if (!data || !data.length) {
     return;
   }
 
   if (emptyMsg) emptyMsg.style.display = 'none';
 
-  items.forEach((item) => {
+  data.forEach((item) => {
     const tr = document.createElement('tr');
-    const stars = '★'.repeat(item.nota) + '☆'.repeat(5 - item.nota);
+    const rating = item.rating || 0;
+    const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
     tr.innerHTML = `
-      <td>${item.nome}</td>
-      <td>${item.comentario}</td>
+      <td>${item.patient_name}</td>
+      <td>${item.comment}</td>
       <td>${stars}</td>
       <td>
         <div class="table-actions">
@@ -238,37 +254,47 @@ function handleDepoimentosPage() {
     });
   });
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const id = idInput && idInput.value ? idInput.value : null;
     const nome = nomeInput && nomeInput.value.trim();
-    const foto = fotoInput && fotoInput.value.trim();
     const comentario = comentarioInput && comentarioInput.value.trim();
     const nota = notaSelect && Number(notaSelect.value);
 
     if (!nome || !comentario || !nota) return;
 
-    const items = loadCollection(KEY_DEPOIMENTOS);
+    if (!window.supabase) return;
 
-    if (id) {
-      const idx = items.findIndex((d) => String(d.id) === String(id));
-      if (idx !== -1) {
-        items[idx] = { ...items[idx], nome, foto, comentario, nota };
+    try {
+      if (id) {
+        const { error } = await window.supabase
+          .from(TESTIMONIALS_TABLE)
+          .update({
+            patient_name: nome,
+            comment: comentario,
+            rating: nota,
+          })
+          .eq('id', id);
+        if (error) throw error;
+      } else {
+        const { error } = await window.supabase
+          .from(TESTIMONIALS_TABLE)
+          .insert([
+            {
+              patient_name: nome,
+              comment: comentario,
+              rating: nota,
+              origin: 'admin',
+            },
+          ]);
+        if (error) throw error;
       }
-    } else {
-      const newItem = {
-        id: Date.now(),
-        nome,
-        foto,
-        comentario,
-        nota,
-      };
-      items.push(newItem);
-    }
 
-    saveCollection(KEY_DEPOIMENTOS, items);
-    renderDepoimentos();
-    closeModal(modal);
+      await renderDepoimentos();
+      closeModal(modal);
+    } catch (err) {
+      console.error('Erro ao salvar depoimento:', err);
+    }
   });
 
   document.addEventListener('click', (event) => {
@@ -279,24 +305,42 @@ function handleDepoimentosPage() {
     const deleteId = target.getAttribute('data-delete-depoimento');
 
     if (editId) {
-      const items = loadCollection(KEY_DEPOIMENTOS);
-      const item = items.find((d) => String(d.id) === String(editId));
-      if (!item) return;
+      if (!window.supabase) return;
+      window.supabase
+        .from(TESTIMONIALS_TABLE)
+        .select('*')
+        .eq('id', editId)
+        .single()
+        .then(({ data, error }) => {
+          if (error || !data) {
+            console.error('Erro ao carregar depoimento para edição:', error);
+            return;
+          }
 
-      if (titleEl) titleEl.textContent = 'Editar depoimento';
-      if (idInput) idInput.value = item.id;
-      if (nomeInput) nomeInput.value = item.nome;
-      if (fotoInput) fotoInput.value = item.foto || '';
-      if (comentarioInput) comentarioInput.value = item.comentario;
-      if (notaSelect) notaSelect.value = String(item.nota);
-      openModal(modal);
+          if (titleEl) titleEl.textContent = 'Editar depoimento';
+          if (idInput) idInput.value = data.id;
+          if (nomeInput) nomeInput.value = data.patient_name || '';
+          if (fotoInput) fotoInput.value = '';
+          if (comentarioInput) comentarioInput.value = data.comment || '';
+          if (notaSelect) notaSelect.value = String(data.rating || 5);
+          openModal(modal);
+        });
     }
 
     if (deleteId) {
       if (!confirm('Deseja realmente excluir este depoimento?')) return;
-      const items = loadCollection(KEY_DEPOIMENTOS).filter((d) => String(d.id) !== String(deleteId));
-      saveCollection(KEY_DEPOIMENTOS, items);
-      renderDepoimentos();
+      if (!window.supabase) return;
+      window.supabase
+        .from(TESTIMONIALS_TABLE)
+        .delete()
+        .eq('id', deleteId)
+        .then(({ error }) => {
+          if (error) {
+            console.error('Erro ao excluir depoimento:', error);
+            return;
+          }
+          renderDepoimentos();
+        });
     }
   });
 

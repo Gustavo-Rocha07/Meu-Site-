@@ -99,16 +99,16 @@ async function fetchAvailableTimes(date, procedimento) {
     }
 
     const { data: agendamentos, error } = await window.supabase
-      .from('agendamentos')
-      .select('hora')
-      .eq('data', date);
+      .from('appointments')
+      .select('time')
+      .eq('date', date);
 
     if (error || !agendamentos) {
       console.error('Erro ao buscar horários ocupados:', error);
       return todosHorarios;
     }
 
-    const ocupados = new Set(agendamentos.map((a) => a.hora));
+    const ocupados = new Set(agendamentos.map((a) => a.time));
     return todosHorarios.filter((hora) => !ocupados.has(hora));
   } catch (err) {
     console.error('Erro inesperado ao buscar horários:', err);
@@ -208,14 +208,14 @@ function fillResumo() {
 
 async function createAgendamentoInSupabase() {
   const payload = {
-    nome: AGENDAMENTO_STATE.paciente.nome,
-    telefone: AGENDAMENTO_STATE.paciente.telefone,
-    data_nascimento: AGENDAMENTO_STATE.paciente.data_nascimento,
-    procedimento: AGENDAMENTO_STATE.procedimento,
-    data: AGENDAMENTO_STATE.data,
-    hora: AGENDAMENTO_STATE.hora,
+    patient_name: AGENDAMENTO_STATE.paciente.nome,
+    phone: AGENDAMENTO_STATE.paciente.telefone,
+    procedure: AGENDAMENTO_STATE.procedimento,
+    date: AGENDAMENTO_STATE.data,
+    time: AGENDAMENTO_STATE.hora,
     status: 'pendente',
-    created_at: new Date().toISOString(),
+    origin: 'site',
+    notes: AGENDAMENTO_STATE.paciente.observacoes,
   };
 
   if (!window.supabase) {
@@ -224,7 +224,7 @@ async function createAgendamentoInSupabase() {
   }
 
   const { error } = await window.supabase
-    .from('agendamentos')
+    .from('appointments')
     .insert([payload]);
 
   if (error) {

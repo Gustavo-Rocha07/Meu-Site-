@@ -333,46 +333,98 @@ if (document.getElementById('proc-title')) {
 }
 
 // =========================================
-// CARROSSEL DE DEPOIMENTOS
+// DEPOIMENTOS (comportamento antigo removido)
 // =========================================
+/*document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.depoimentos-carousel');
+  if (!container) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.querySelector('.depoimentos-carousel');
-  const prevBtn = document.querySelector('.carousel-btn-prev');
-  const nextBtn = document.querySelector('.carousel-btn-next');
-  
-  if (!carousel || !prevBtn || !nextBtn) return;
-  
-  const cardWidth = 320;
-  const gap = 24;
-  const scrollAmount = cardWidth + gap;
-  
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({
-      left: -scrollAmount,
-      behavior: 'smooth'
+  const cards = Array.from(container.querySelectorAll('.depoimento-card'));
+  if (!cards.length) return;
+
+  let currentIndex = 0;
+  let isDragging = false;
+  let startX = 0;
+  let currentX = 0;
+
+  const getClientX = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+  function updateStack() {
+    const active = cards[currentIndex];
+    const next = cards[(currentIndex + 1) % cards.length];
+    const afterNext = cards[(currentIndex + 2) % cards.length];
+
+    cards.forEach((card) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(40px) scale(0.96)';
+      card.style.zIndex = '1';
     });
-  });
-  
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
-  });
-  
-  // Atualizar visibilidade dos botões baseado na posição do scroll
-  const updateButtons = () => {
-    const isAtStart = carousel.scrollLeft <= 0;
-    const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
-    
-    prevBtn.style.opacity = isAtStart ? '0.5' : '1';
-    prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
-    
-    nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
-    nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
-  };
-  
-  carousel.addEventListener('scroll', updateButtons);
-  updateButtons();
-});
+
+    if (afterNext && afterNext !== active && afterNext !== next) {
+      afterNext.style.opacity = '0';
+      afterNext.style.transform = 'translateY(60px) scale(0.94)';
+      afterNext.style.zIndex = '1';
+    }
+
+    if (next) {
+      next.style.opacity = '0.7';
+      next.style.transform = 'translateY(18px) scale(0.98)';
+      next.style.zIndex = '2';
+    }
+
+    if (active) {
+      active.style.opacity = '1';
+      active.style.transform = 'translateX(0) translateY(0) scale(1)';
+      active.style.zIndex = '3';
+    }
+
+    if (active) {
+      const height = active.offsetHeight;
+      if (height) {
+        container.style.height = height + 40 + 'px';
+      }
+    }
+  }
+
+  function attachDrag(card) {
+    const onDown = (e) => {
+      isDragging = true;
+      startX = getClientX(e);
+      currentX = startX;
+      card.style.transition = 'none';
+    };
+
+    const onMove = (e) => {
+      if (!isDragging) return;
+      currentX = getClientX(e);
+      const dx = currentX - startX;
+      card.style.transform = `translateX(${dx}px)`;
+    };
+
+    const onUp = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const dx = currentX - startX;
+      const threshold = 80;
+
+      card.style.transition = 'transform 0.2s ease';
+
+      if (Math.abs(dx) > threshold) {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateStack();
+      } else {
+        card.style.transform = 'translateX(0)';
+      }
+    };
+
+    card.addEventListener('mousedown', onDown);
+    card.addEventListener('touchstart', onDown, { passive: true });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+  }
+
+  cards.forEach((card) => attachDrag(card));
+  updateStack();
+});*/

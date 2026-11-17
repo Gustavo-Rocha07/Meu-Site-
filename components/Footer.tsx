@@ -21,6 +21,7 @@ const navegacao = [
   { label: 'A doutora', href: '/sobre' },
   { label: 'Blog', href: '/blog' },
   { label: 'Unidades e como chegar', href: '/contato' },
+  { label: 'Política de privacidade', href: '/privacidade' },
 ];
 
 /**

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import JsonLd from '@/components/JsonLd';
 import { NOME, SITE_URL } from '@/lib/contato';
@@ -51,12 +52,26 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 };
 
+/** Tag do Google criada no painel do Google (contêiner "Todas as tags"). */
+const GOOGLE_TAG_ID = 'GTM-K6FRHJCM';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${cormorant.variable} ${dmSans.variable}`}>
       <body>
         {children}
         <JsonLd dados={schemaClinica} />
+        {/* Tag do Google (medição de visitas e conversões). afterInteractive: carrega
+            logo depois que a página fica interativa, sem atrasar o primeiro paint. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
       </body>
     </html>
   );

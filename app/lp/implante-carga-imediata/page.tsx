@@ -14,6 +14,8 @@ import {
   ShieldCheck,
   Smile,
   Stethoscope,
+  Sunrise,
+  Utensils,
 } from 'lucide-react';
 import Comparador from '@/components/Comparador';
 import Faq from '@/components/Faq';
@@ -21,6 +23,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import LinkWhatsApp from '@/components/lp/LinkWhatsApp';
 import FormularioAvaliacao from '@/components/lp/FormularioAvaliacao';
 import VideoDepoimento from '@/components/lp/VideoDepoimento';
+import BarraFixaCelular from '@/components/lp/BarraFixaCelular';
 import { casos, casosMontados } from '@/lib/casos';
 import { CRO, HORARIO, NOME_CLINICA, TELEFONE, TELEFONE_EXIBICAO, UNIDADES } from '@/lib/contato';
 import { OG_IMAGEM } from '@/lib/seo';
@@ -52,6 +55,9 @@ export const metadata: Metadata = {
     images: [OG_IMAGEM],
   },
 };
+
+/** Âncora do formulário: todos os botões de avaliação levam ao começo dele. */
+const ALVO_FORMULARIO = 'formulario';
 
 const MENSAGEM_WHATSAPP =
   'Olá! Vim pelo anúncio do Google e quero agendar uma avaliação para implante com carga imediata.';
@@ -103,6 +109,55 @@ const etapas = [
   },
 ];
 
+// "Tudo em um dia": o principal diferencial da carga imediata, com as objeções
+// que mais travam a decisão. Comer: só alimentos macios nas primeiras semanas
+// (é o que protege a integração) — prometer "comer de tudo" seria falso.
+const umDia = [
+  {
+    icone: Sunrise,
+    quando: 'Chegada',
+    titulo: 'Cirurgia com anestesia local',
+    texto: 'Os implantes são instalados no consultório, com o plano feito antes pela tomografia.',
+  },
+  {
+    icone: Smile,
+    quando: 'No mesmo dia',
+    titulo: 'Você sai com dentes fixos',
+    texto: 'Se a firmeza dos implantes permitir, a prótese provisória fixa é colocada antes de você ir embora.',
+  },
+  {
+    icone: Utensils,
+    quando: 'Primeiros dias',
+    titulo: 'Sorrindo e comendo alimentos macios',
+    texto: 'Os dentes não saem para comer nem para dormir. A dieta macia nas primeiras semanas protege os implantes.',
+  },
+  {
+    icone: ShieldCheck,
+    quando: '3 a 6 meses depois',
+    titulo: 'Prótese definitiva',
+    texto: 'Com o osso integrado aos implantes, o provisório é trocado pela prótese definitiva.',
+  },
+];
+
+const objecoes = [
+  {
+    pergunta: 'Vou ficar sem dente?',
+    resposta: 'Não. Quando a carga imediata é indicada, você sai da cirurgia com dentes provisórios fixos, no mesmo dia.',
+  },
+  {
+    pergunta: 'Vou conseguir comer?',
+    resposta: 'Sim. Nos primeiros dias a alimentação é macia para proteger os implantes, e os dentes ficam fixos, sem sair do lugar.',
+  },
+  {
+    pergunta: 'Vou sentir dor?',
+    resposta: 'A cirurgia é feita com anestesia local. O desconforto dos dias seguintes é controlado com a medicação indicada.',
+  },
+  {
+    pergunta: 'Vou voltar muitas vezes?',
+    resposta: 'Cirurgia e dentes provisórios acontecem no mesmo dia. Depois, só os retornos de acompanhamento até a prótese definitiva.',
+  },
+];
+
 const diferenciais = [
   'Planejamento digital com tomografia antes da cirurgia',
   'Explicação clara do plano, do prazo e do valor antes de começar',
@@ -134,7 +189,7 @@ const faq = [
 
 function BotaoAvaliacao({ className = '' }: { className?: string }) {
   return (
-    <a href="#avaliacao" className={`btn-primary group ${className}`}>
+    <a href={`#${ALVO_FORMULARIO}`} className={`btn-primary group ${className}`}>
       Quero agendar minha avaliação
       <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
     </a>
@@ -144,6 +199,10 @@ function BotaoAvaliacao({ className = '' }: { className?: string }) {
 export default function LandingCargaImediata() {
   return (
     <>
+      {/* O site reserva 6rem no topo para o menu fixo; a LP não tem menu fixo, então
+          as âncoras (formulário, depoimento) param exatamente no começo do bloco. */}
+      <style>{'html{scroll-padding-top:0}'}</style>
+
       {/* Barra do topo: só marca e contato, sem menu de navegação */}
       <header className="absolute inset-x-0 top-0 z-30">
         <div className="container-main flex h-[72px] items-center justify-between gap-4">
@@ -222,16 +281,17 @@ export default function LandingCargaImediata() {
 
             <div className="mt-8 lg:col-start-1 lg:row-start-2 lg:mt-0">
               <p className="max-w-xl text-[17px] leading-relaxed text-muted">
-                Quando o osso permite, você sai do consultório com dentes provisórios fixos no
-                mesmo dia, sem passar meses sem dente. Atendimento em Suzano e Ferraz de
-                Vasconcelos, com quem faz implantes há mais de 25 anos.
+                Implantes e dentes fixos em um único dia: quando o osso permite, você entra no
+                consultório e sai sorrindo, sem passar meses sem dente. Atendimento em Suzano e
+                Ferraz de Vasconcelos, com quem faz implantes há mais de 25 anos.
               </p>
 
               <ul className="mt-7 space-y-2.5">
                 {[
-                  'Avaliação com exame clínico e explicação das opções',
-                  'Planejamento com tomografia antes da cirurgia',
-                  'Você sabe o plano, o prazo e o valor antes de começar',
+                  'Cirurgia e dentes provisórios fixos no mesmo dia',
+                  'Volte a sorrir na hora e a comer alimentos macios já nos primeiros dias',
+                  'Nada de dentadura solta: os dentes ficam fixos nos implantes',
+                  'Planejamento com tomografia e plano com prazo e valor antes de começar',
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-3 text-[15px] text-dark">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/20">
@@ -274,7 +334,64 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 3. Depoimentos em vídeo: logo no começo, porque é a prova mais forte da página */}
+        {/* 3. Tudo em um dia: o diferencial e as objeções que travam a decisão */}
+        <section className="section-py bg-cream">
+          <div className="container-main">
+            <div className="max-w-2xl">
+              <span className="section-badge mb-5">Tudo em um único dia</span>
+              <h2 className="section-heading text-4xl lg:text-5xl">
+                Você entra no consultório e sai{' '}
+                <span className="italic text-gold-dark">sorrindo com dentes fixos</span>
+              </h2>
+              <p className="mt-5 leading-relaxed text-muted">
+                Nada de meses sem dente ou de dentadura provisória solta. Quando o seu caso permite,
+                cirurgia e dentes fixos acontecem no mesmo dia.
+              </p>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+              {/* Linha do tempo do dia */}
+              <ol className="relative space-y-7 border-l border-gold/40 pl-8">
+                {umDia.map((e) => {
+                  const Icone = e.icone;
+                  return (
+                    <li key={e.titulo} className="relative">
+                      <span
+                        className="absolute -left-[3.05rem] top-0 flex h-9 w-9 items-center justify-center
+                                   rounded-full border border-gold/40 bg-surface text-gold-dark"
+                      >
+                        <Icone size={17} aria-hidden="true" />
+                      </span>
+                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-gold-deep">{e.quando}</p>
+                      <h3 className="mt-1 font-cormorant text-2xl text-dark">{e.titulo}</h3>
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{e.texto}</p>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              {/* Objeções */}
+              <div>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {objecoes.map((o) => (
+                    <div key={o.pergunta} className="rounded-2xl border border-border bg-surface p-5">
+                      <p className="font-cormorant text-xl text-dark">{o.pergunta}</p>
+                      <p className="mt-2 text-[14px] leading-relaxed text-muted">{o.resposta}</p>
+                    </div>
+                  ))}
+                </div>
+                <BotaoAvaliacao className="mt-8 w-full sm:w-auto" />
+                <p className="mt-4 text-xs leading-relaxed text-muted">
+                  A carga imediata depende da avaliação, da tomografia e da firmeza dos implantes
+                  medida na cirurgia. Se não for possível no seu caso, você recebe a alternativa
+                  mais segura, explicada antes de começar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Depoimentos em vídeo: logo no começo, porque é a prova mais forte da página */}
         <section id="depoimento" className="section-py scroll-mt-4 bg-dark">
           <div className="container-main">
             <div className="max-w-2xl">
@@ -329,7 +446,7 @@ export default function LandingCargaImediata() {
               Herreira ({CRO}). O resultado varia de pessoa para pessoa.
             </p>
             <a
-              href="#avaliacao"
+              href={`#${ALVO_FORMULARIO}`}
               className="mt-8 inline-flex items-center justify-center gap-2.5 rounded-full bg-gold px-7 py-3.5 text-[15px]
                          font-medium text-dark transition-colors hover:bg-gold-light"
             >
@@ -339,7 +456,7 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 4. Identificação */}
+        {/* 5. Identificação */}
         <section className="section-py bg-cream">
           <div className="container-main grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -368,7 +485,7 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 5. Casos reais */}
+        {/* 6. Casos reais */}
         <section className="section-py bg-white">
           <div className="container-main">
             <div className="max-w-2xl">
@@ -391,7 +508,7 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 6. Como funciona */}
+        {/* 7. Como funciona */}
         <section className="section-py bg-cream">
           <div className="container-main">
             <div className="max-w-2xl">
@@ -420,7 +537,7 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 7. A doutora */}
+        {/* 8. A doutora */}
         <section className="section-py bg-white">
           <div className="container-main grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
             <div className="relative mx-auto w-full max-w-[380px]">
@@ -460,20 +577,29 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 8. Dúvidas */}
+        {/* 9. Dúvidas */}
         <Faq perguntas={faq} titulo="Dúvidas sobre implante com carga imediata" />
 
-        {/* 9. Formulário */}
-        <section id="avaliacao" className="section-py scroll-mt-4 bg-white">
-          <div className="container-main grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <div>
+        {/* 10. Formulário */}
+        {/* Celular: título → formulário → "na avaliação você vai". Desktop: formulário à direita.
+            Os botões de avaliação levam à âncora do próprio formulário, não ao título. */}
+        <section id="avaliacao" className="bg-white py-16 lg:py-28">
+          <div className="container-main grid grid-cols-1 gap-x-16 lg:grid-cols-[0.9fr_1.1fr] lg:grid-rows-[auto_1fr]">
+            <div className="lg:col-start-1 lg:row-start-1">
               <span className="section-badge mb-5">Agendamento</span>
-              <h2 className="section-heading text-4xl lg:text-5xl">Agende sua avaliação</h2>
-              <p className="mt-5 leading-relaxed text-muted">
-                Responda três perguntas rápidas e a sua mensagem chega pronta no WhatsApp da
-                clínica. A equipe responde em horário comercial ({HORARIO.toLowerCase()}).
+              <h2 className="section-heading text-4xl lg:text-5xl">Falta pouco para o seu novo sorriso</h2>
+              <p className="mt-4 leading-relaxed text-muted">
+                Responda o formulário e a sua mensagem chega pronta no WhatsApp da clínica. A equipe
+                responde em horário comercial ({HORARIO.toLowerCase()}).
               </p>
-              <h3 className="mt-9 text-xs uppercase tracking-[0.18em] text-muted">Na avaliação você vai</h3>
+            </div>
+
+            <div id={ALVO_FORMULARIO} className="mt-8 scroll-mt-3 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0">
+              <FormularioAvaliacao />
+            </div>
+
+            <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:mt-0">
+              <h3 className="mt-0 text-xs uppercase tracking-[0.18em] text-muted lg:mt-9">Na avaliação você vai</h3>
               <ul className="mt-4 space-y-3">
                 {[
                   'Mostrar o que te incomoda e tirar todas as dúvidas',
@@ -488,11 +614,10 @@ export default function LandingCargaImediata() {
                 ))}
               </ul>
             </div>
-            <FormularioAvaliacao />
           </div>
         </section>
 
-        {/* 10. Unidades */}
+        {/* 11. Unidades */}
         <section className="bg-cream py-16">
           <div className="container-main">
             <h2 className="section-heading text-3xl lg:text-4xl">Onde atendemos</h2>
@@ -542,18 +667,8 @@ export default function LandingCargaImediata() {
         </div>
       </footer>
 
-      {/* Barra fixa no celular: o WhatsApp sempre a um toque */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-cream/95 p-3 backdrop-blur-md lg:hidden">
-        <LinkWhatsApp
-          href={WHATSAPP}
-          posicao="barra-fixa"
-          className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 text-[15px]
-                     font-semibold text-white shadow-lg shadow-black/10"
-        >
-          <WhatsAppIcon size={19} />
-          Agendar minha avaliação
-        </LinkWhatsApp>
-      </div>
+      {/* Barra fixa no celular: leva ao formulário e some quando ele está na tela */}
+      <BarraFixaCelular alvo={ALVO_FORMULARIO} />
     </>
   );
 }

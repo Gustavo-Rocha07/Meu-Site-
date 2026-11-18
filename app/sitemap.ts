@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pagina('/sobre', '2026-10-27', 0.7),
     pagina('/contato', '2026-10-28', 0.8),
     pagina('/blog', '2026-10-27', 0.6),
+    pagina('/privacidade', '2026-11-17', 0.2),
     ...artigos.map((a) => pagina(`/blog/${a.slug}`, a.atualizadoEm, 0.6, [`${SITE_URL}${a.imagem.src}`])),
   ];
 }

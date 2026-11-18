@@ -1,172 +1,189 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Instagram, Menu, X } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
+import { INSTAGRAM, WA_AGENDAR } from '@/lib/contato';
 
-const WA_LINK =
-  'https://wa.me/5511991444710?text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Michele.';
-
-const navLinks = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Tratamentos', href: '#tratamentos' },
-  { label: 'Resultados', href: '#resultados' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'Contato', href: '#contato' },
+// Links para páginas reais (antes eram âncoras da página única). "Tratamentos"
+// continua levando à lista da home, que é o hub com um resumo de cada um.
+const links = [
+  { label: 'Início', href: '/' },
+  { label: 'Tratamentos', href: '/#tratamentos' },
+  { label: 'Crianças', href: '/odontopediatria' },
+  { label: 'A doutora', href: '/sobre' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [aberto, setAberto] = useState(false);
+  const pathname = usePathname();
+  const ativo = (href: string) =>
+    href === '/' ? pathname === '/' : !href.includes('#') && pathname.startsWith(href);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const aoRolar = () => setScrolled(window.scrollY > 24);
+    aoRolar();
+    window.addEventListener('scroll', aoRolar, { passive: true });
+    return () => window.removeEventListener('scroll', aoRolar);
   }, []);
 
+  // Menu aberto no celular: trava o scroll do fundo e fecha no Esc.
   useEffect(() => {
-    const sections = navLinks.map((l) => l.href.replace('#', ''));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.3 }
-    );
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+    if (!aberto) return;
+    const anterior = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const aoTeclar = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setAberto(false);
+    };
+    document.addEventListener('keydown', aoTeclar);
+    return () => {
+      document.body.style.overflow = anterior;
+      document.removeEventListener('keydown', aoTeclar);
+    };
+  }, [aberto]);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 2.3 }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-dark/5'
-            : 'bg-transparent'
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]
+                   focus:rounded-full focus:bg-dark focus:px-5 focus:py-2.5 focus:text-sm focus:text-white"
+      >
+        Pular para o conteúdo
+      </a>
+
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          scrolled || aberto
+            ? 'border-b border-dark/[0.07] bg-cream/90 backdrop-blur-md'
+            : 'border-b border-transparent'
         }`}
       >
-        <div className="container-main h-20 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#inicio" className="relative z-10 flex-shrink-0">
-            <div className="relative w-44 h-10">
-              <Image
-                src="/img/logo-nome.png"
-                alt="Dra. Michele Herreira"
-                fill
-                className="object-contain object-left"
-                priority
-              />
-            </div>
-          </a>
+        <div className="container-main flex h-[72px] items-center justify-between gap-6">
+          <Link href="/" aria-label="Dra. Michele Herreira, início" className="shrink-0">
+            <Image
+              src="/img/logo-nome.png"
+              alt="Dra. Michele Herreira"
+              width={168}
+              height={38}
+              // eager, mas sem preload: o preload fica só com a foto principal (LCP)
+              loading="eager"
+              className="h-9 w-auto object-contain"
+            />
+          </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative font-sans text-sm font-medium transition-colors duration-300 py-1 ${
-                  activeSection === link.href.replace('#', '')
-                    ? 'text-gold'
-                    : scrolled
-                    ? 'text-dark/70 hover:text-gold'
-                    : 'text-dark/70 hover:text-gold'
-                }`}
-              >
-                {link.label}
-                {activeSection === link.href.replace('#', '') && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-0.5 left-0 right-0 h-px bg-gold"
-                  />
-                )}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-8 lg:flex">
+            {links.map(({ label, href }) => {
+              const selecionado = ativo(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={selecionado ? 'page' : undefined}
+                  className={`relative py-1 text-sm transition-colors duration-200 ${
+                    selecionado ? 'text-dark' : 'text-muted hover:text-dark'
+                  }`}
+                >
+                  {label}
+                  {selecionado && (
+                    <motion.span
+                      layoutId="nav-ativo"
+                      className="absolute -bottom-0.5 left-0 right-0 h-px bg-gold"
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* CTA */}
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-dark text-white text-sm
-                       font-sans font-medium rounded-full hover:bg-gold transition-all duration-300 flex-shrink-0"
-          >
-            <Phone size={14} />
-            Agendar
-          </a>
+          <div className="flex items-center gap-1 lg:gap-3">
+            {/* Instagram visível sempre, no celular e no computador */}
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Dra. Michele Herreira (abre em nova aba)"
+              title="@dra.michele_ no Instagram"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-dark
+                         transition-colors hover:bg-dark/5 hover:text-[#d62976]"
+            >
+              <Instagram size={20} />
+            </a>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-dark/5 transition-colors"
-            aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
-          >
-            <AnimatePresence mode="wait">
-              {mobileOpen ? (
-                <motion.div key="x" initial={{ rotate: -90 }} animate={{ rotate: 0 }} exit={{ rotate: 90 }}>
-                  <X size={22} className="text-dark" />
-                </motion.div>
-              ) : (
-                <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} exit={{ rotate: -90 }}>
-                  <Menu size={22} className="text-dark" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </button>
+            <a
+              href={WA_AGENDAR}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2 rounded-full bg-dark px-5 py-2.5 text-sm
+                         font-medium text-white transition-colors duration-200 hover:bg-charcoal lg:inline-flex"
+            >
+              <WhatsAppIcon size={15} />
+              Agendar
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setAberto((v) => !v)}
+              aria-expanded={aberto}
+              aria-controls="menu-mobile"
+              aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}
+              className="-mr-2 flex h-10 w-10 items-center justify-center rounded-full text-dark
+                         transition-colors hover:bg-dark/5 lg:hidden"
+            >
+              {aberto ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {aberto && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-20 left-0 right-0 z-30 bg-white/98 backdrop-blur-xl border-b border-dark/5 shadow-xl"
+            id="menu-mobile"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto bg-cream lg:hidden"
           >
-            <nav className="container-main py-8 flex flex-col gap-1">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between py-3.5 border-b border-dark/5 font-sans font-medium text-dark/80 hover:text-gold transition-colors"
+            <nav className="container-main flex flex-col py-6">
+              {links.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setAberto(false)}
+                  className="border-b border-dark/[0.07] py-4 text-lg text-dark"
                 >
-                  {link.label}
-                  <span className="text-gold/40">→</span>
-                </motion.a>
+                  {label}
+                </Link>
               ))}
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                href={WA_LINK}
+              <a
+                href={WA_AGENDAR}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="mt-4 btn-primary justify-center text-center"
+                onClick={() => setAberto(false)}
+                className="btn-primary mt-8"
               >
-                <Phone size={16} />
+                <WhatsAppIcon size={17} />
                 Agendar pelo WhatsApp
-              </motion.a>
+              </a>
+              <a
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setAberto(false)}
+                className="btn-outline mt-3"
+              >
+                <Instagram size={17} aria-hidden="true" />
+                Ver o Instagram @dra.michele_
+              </a>
             </nav>
           </motion.div>
         )}

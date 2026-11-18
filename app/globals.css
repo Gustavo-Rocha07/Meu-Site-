@@ -3,94 +3,109 @@
 @tailwind utilities;
 
 :root {
-  --gold: #C09A5C;
-  --gold-light: #E8D5B0;
-  --dark: #0F1117;
-  --cream: #FAFAF7;
+  --gold: #b08d4f;
+  --dark: #14161c;
+  --cream: #faf9f6;
 }
 
 html {
   scroll-behavior: smooth;
+  /* o cabeçalho é fixo: sem isso, os links de âncora param atrás dele */
+  scroll-padding-top: 6rem;
   overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
-  background-color: #FAFAF7;
-  color: #2A2520;
+  background-color: var(--cream);
+  color: #2a2520;
   overflow-x: hidden;
-  cursor: none;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  body { cursor: auto; }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f0ece5;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfc6b8;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b3a794;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #FAFAF7; }
-::-webkit-scrollbar-thumb { background: #C09A5C; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #8B6E36; }
+::selection {
+  background: rgba(176, 141, 79, 0.18);
+  color: #14161c;
+}
 
-/* Selection */
-::selection { background: rgba(192, 154, 92, 0.15); color: #0F1117; }
-
-/* Smooth image rendering */
-img { image-rendering: -webkit-optimize-contrast; }
-
-/* Focus styles */
 :focus-visible {
-  outline: 2px solid #C09A5C;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Respeita quem desativou animações no sistema operacional. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer components {
   .container-main {
-    @apply max-w-7xl mx-auto px-6 lg:px-12;
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-10;
   }
 
   .section-badge {
-    @apply inline-flex items-center gap-2 text-gold text-xs font-sans tracking-[0.2em] uppercase font-medium;
+    @apply inline-flex items-center gap-3 font-sans text-xs font-medium uppercase
+           tracking-[0.18em] text-gold-dark;
   }
 
   .section-badge::before {
     content: '';
-    @apply block w-8 h-px bg-gold;
+    @apply block h-px w-6 bg-gold;
   }
 
   .section-heading {
-    @apply font-cormorant font-light text-dark leading-tight;
+    @apply font-cormorant font-normal leading-[1.08] tracking-[-0.01em] text-dark;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-3 px-8 py-4 bg-dark text-white font-sans font-medium rounded-full
-           hover:bg-charcoal transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full bg-dark px-7 py-3.5
+           font-sans text-[15px] font-medium text-white transition-colors duration-200
+           hover:bg-charcoal;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-8 py-4 border border-dark/20 text-dark font-sans font-medium
-           rounded-full hover:bg-dark/5 transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-dark/20
+           px-7 py-3.5 font-sans text-[15px] font-medium text-dark transition-colors
+           duration-200 hover:border-dark/40 hover:bg-dark/[0.03];
   }
 
   .btn-gold {
-    @apply inline-flex items-center gap-3 px-8 py-4 bg-gold text-white font-sans font-medium rounded-full
-           hover:bg-gold-dark transition-all duration-300 shadow-lg shadow-gold/20;
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full bg-gold-dark px-7 py-3.5
+           font-sans text-[15px] font-medium text-white transition-colors duration-200
+           hover:bg-gold-deep;
   }
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-
-  .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/60;
-  }
-
-  .gold-border {
-    @apply border border-gold/20;
+  .text-balance {
+    text-wrap: balance;
   }
 
   .section-py {
-    @apply py-24 lg:py-36;
+    @apply py-20 lg:py-28;
   }
 }

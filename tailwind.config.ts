@@ -9,54 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: '#FAFAF7',
+        cream: '#FAF9F6',
+        // gold = decorativo e títulos grandes (3.1:1 no branco).
+        // gold-dark = texto pequeno e botões (4.9:1 com branco por cima).
         gold: {
-          DEFAULT: '#C09A5C',
-          light: '#E8D5B0',
-          dark: '#8B6E36',
-          subtle: 'rgba(192,154,92,0.08)',
+          DEFAULT: '#B08D4F',
+          light: '#E0CCA4',
+          dark: '#8A6C30',
+          deep: '#6F5626',
         },
-        dark: '#0F1117',
+        dark: '#14161C',
         charcoal: '#2A2520',
-        muted: '#8C8075',
-        border: '#E4DDD5',
+        // 5.9:1 no branco — o cinza anterior (#8C8075) ficava em 3.8:1 e reprovava
+        // no critério de contraste da WCAG para texto corrido.
+        muted: '#6B6157',
+        border: '#E5DFD6',
         surface: '#FFFFFF',
       },
       fontFamily: {
         cormorant: ['var(--font-cormorant)', 'Georgia', 'serif'],
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
-      fontSize: {
-        display: ['clamp(3.5rem, 8vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
-        hero: ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
-      },
-      spacing: {
-        section: '8rem',
-        'section-sm': '5rem',
-      },
       borderRadius: {
         '4xl': '2rem',
-        '5xl': '2.5rem',
+      },
+      // Animações do topo da home em CSS puro (antes eram framer-motion).
+      keyframes: {
+        flutuar: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-9px)' },
+        },
+        girar: {
+          to: { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
-        'float-slow': 'float 6s ease-in-out infinite',
-        'float-med': 'float 4s ease-in-out infinite',
-        'pulse-gold': 'pulseGold 3s ease-in-out infinite',
-        'spin-slow': 'spin 20s linear infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        pulseGold: {
-          '0%, 100%': { opacity: '0.3' },
-          '50%': { opacity: '0.7' },
-        },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gold-shimmer': 'linear-gradient(135deg, #C09A5C 0%, #E8D5B0 50%, #C09A5C 100%)',
+        flutuar: 'flutuar 4.5s ease-in-out infinite',
+        girar: 'girar 60s linear infinite',
       },
     },
   },

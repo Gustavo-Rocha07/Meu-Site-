@@ -2,44 +2,27 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Cpu, Sliders, CheckCircle2, Heart, ShieldCheck, Zap } from 'lucide-react';
 
-const differentials = [
+const etapas = [
   {
-    icon: Cpu,
-    title: 'Tecnologia Digital',
-    description:
-      'Planejamento 3D, scanners intraorais e guias cirúrgicos para máxima precisão em cada procedimento.',
+    titulo: 'Avaliação',
+    texto:
+      'Anamnese, exame clínico e imagens. É nessa consulta que se define o que está acontecendo e o que você espera do tratamento.',
   },
   {
-    icon: Sliders,
-    title: 'Planejamento Personalizado',
-    description:
-      'Cada tratamento é único. Análise detalhada do seu caso para resultados sob medida e previsíveis.',
+    titulo: 'Planejamento',
+    texto:
+      'O caso é planejado digitalmente e, quando aplicável, o resultado é simulado antes de começar. Opções, prazos e valores são apresentados por escrito.',
   },
   {
-    icon: CheckCircle2,
-    title: 'Resultados Previsíveis',
-    description:
-      'Simulação digital antes do tratamento. Você visualiza o resultado esperado antes de começar.',
+    titulo: 'Execução',
+    texto:
+      'Procedimentos realizados com protocolo de biossegurança e guia cirúrgico quando indicado, respeitando o ritmo e o conforto do paciente.',
   },
   {
-    icon: Heart,
-    title: 'Atendimento Humanizado',
-    description:
-      'Cuidado que vai além da técnica. Ambiente acolhedor e atenção completamente individualizada.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Segurança Clínica',
-    description:
-      'Protocolos rigorosos de biossegurança e esterilização para sua completa tranquilidade.',
-  },
-  {
-    icon: Zap,
-    title: 'Carga Imediata',
-    description:
-      'Implantes e dentes fixos no mesmo dia da cirurgia. Recupere seu sorriso em horas.',
+    titulo: 'Acompanhamento',
+    texto:
+      'Retornos programados para ajuste e manutenção. Implante e prótese precisam de acompanhamento periódico para durar.',
   },
 ];
 
@@ -50,64 +33,35 @@ export default function Differentials() {
   return (
     <section ref={ref} className="section-py bg-white">
       <div className="container-main">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
+          transition={{ duration: 0.5 }}
+          className="max-w-2xl"
         >
-          <div>
-            <span className="section-badge mb-5 block">Por que escolher</span>
-            <h2 className="section-heading text-5xl lg:text-6xl">
-              Nossos{' '}
-              <span className="italic text-gold">Diferenciais</span>
-            </h2>
-          </div>
-          <p className="font-sans text-muted max-w-sm leading-relaxed lg:text-right">
-            Tecnologia avançada e atendimento humanizado para
-            resultados que superam expectativas.
-          </p>
+          <span className="section-badge mb-5">Como funciona</span>
+          <h2 className="section-heading text-4xl lg:text-5xl">
+            Do primeiro contato ao acompanhamento
+          </h2>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {differentials.map((d, i) => {
-            const Icon = d.icon;
-            return (
-              <motion.div
-                key={d.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative p-8 rounded-3xl border border-border bg-cream
-                           hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5
-                           transition-all duration-500 cursor-default"
-              >
-                {/* Number */}
-                <span className="absolute top-6 right-8 font-cormorant text-6xl font-light text-dark/5 group-hover:text-gold/10 transition-colors duration-500 select-none">
-                  0{i + 1}
-                </span>
-
-                {/* Icon */}
-                <div className="mb-6 w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center
-                                group-hover:bg-gold/15 transition-colors duration-300">
-                  <Icon size={22} className="text-gold" />
-                </div>
-
-                <h3 className="font-cormorant text-2xl font-medium text-dark mb-3">
-                  {d.title}
-                </h3>
-                <p className="font-sans text-sm text-muted leading-relaxed">
-                  {d.description}
-                </p>
-
-                {/* Hover line */}
-                <div className="absolute bottom-0 left-8 right-8 h-px bg-gold/0 group-hover:bg-gold/30 transition-all duration-500" />
-              </motion.div>
-            );
-          })}
-        </div>
+        <ol className="mt-14 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {etapas.map((e, i) => (
+            <motion.li
+              key={e.titulo}
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="border-t border-dark pt-5"
+            >
+              <span className="font-cormorant text-sm text-gold-dark">
+                Etapa {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="mt-2 font-cormorant text-2xl text-dark">{e.titulo}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted">{e.texto}</p>
+            </motion.li>
+          ))}
+        </ol>
       </div>
     </section>
   );

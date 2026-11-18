@@ -61,17 +61,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <JsonLd dados={schemaClinica} />
-        {/* Tag do Google (medição de visitas e conversões). afterInteractive: carrega
-            logo depois que a página fica interativa, sem atrasar o primeiro paint. */}
-        <Script
-          src={`https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}`}
-          strategy="afterInteractive"
-        />
+        {/* Tag do Google (medição de visitas e conversões).
+            O dataLayer nasce cedo (script minúsculo), então eventos de conversão disparados
+            antes do GTM carregar ficam na fila e são processados quando ele chega.
+            O GTM em si (≈170 KB de JS) carrega com lazyOnload: depois que a página terminou de
+            carregar, sem disputar o processador do celular com a primeira renderização. */}
         <Script id="google-tag" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());`}
+window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});`}
         </Script>
+        <Script
+          src={`https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}`}
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

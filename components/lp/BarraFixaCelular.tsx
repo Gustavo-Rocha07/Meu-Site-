@@ -23,8 +23,8 @@ export default function BarraFixaCelular({ alvo }: { alvo: string }) {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-cream/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]
-                  backdrop-blur-md transition-transform duration-300 lg:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-cream p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]
+                  transition-transform duration-300 lg:hidden ${
                     formularioNaTela ? 'translate-y-full' : 'translate-y-0'
                   }`}
       aria-hidden={formularioNaTela}

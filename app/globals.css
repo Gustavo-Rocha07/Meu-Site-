@@ -21,7 +21,6 @@ body {
   color: #2a2520;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 ::-webkit-scrollbar {

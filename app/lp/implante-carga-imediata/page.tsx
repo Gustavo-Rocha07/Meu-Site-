@@ -231,7 +231,7 @@ export default function LandingCargaImediata() {
         <section className="relative overflow-hidden bg-cream">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-[-10%] top-[-10%] h-[520px] w-[520px] rounded-full bg-gold/10 blur-[120px]"
+            className="pointer-events-none absolute right-[-10%] top-[-10%] h-[640px] w-[640px] rounded-full bg-[radial-gradient(circle,rgba(176,141,79,0.14)_0%,rgba(176,141,79,0)_65%)]"
           />
           {/* Celular: título → foto → texto. Desktop: foto na coluna da direita. */}
           <div className="container-main relative grid grid-cols-1 gap-x-14 pb-16 pt-28
@@ -257,12 +257,13 @@ export default function LandingCargaImediata() {
                   width={casoCargaImediata.width}
                   height={casoCargaImediata.height}
                   preload
+                  fetchPriority="high"
                   sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 380px"
                   className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <span
-                  className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-surface/95 p-3
-                             shadow-lg backdrop-blur-sm"
+                  className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-surface p-3
+                             shadow-lg"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dark text-white">
                     <Play size={16} className="ml-0.5 fill-white" aria-hidden="true" />

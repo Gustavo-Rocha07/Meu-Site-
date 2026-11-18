@@ -17,7 +17,7 @@ type Props = {
  */
 export default function CTASection({
   titulo = 'Vamos avaliar o seu caso',
-  texto = 'Na consulta de avaliação o caso é examinado, as dúvidas são respondidas e as opções de tratamento são apresentadas com prazo e valor. A avaliação não tem custo e não gera compromisso de fechar tratamento.',
+  texto = 'Na consulta de avaliação o caso é examinado, as dúvidas são respondidas e as opções de tratamento são apresentadas com prazo e valor. Você decide depois, sem compromisso de fechar o tratamento.',
   whatsapp = WA_AGENDAR,
   rotuloBotao = 'Agendar pelo WhatsApp',
 }: Props) {
@@ -78,7 +78,7 @@ export default function CTASection({
             <div className="flex items-center gap-2.5">
               <BadgeCheck size={15} className="text-gold" aria-hidden="true" />
               <dt className="sr-only">Consulta de avaliação</dt>
-              <dd>Avaliação sem custo</dd>
+              <dd>Plano com prazo e valor</dd>
             </div>
           </dl>
         </div>

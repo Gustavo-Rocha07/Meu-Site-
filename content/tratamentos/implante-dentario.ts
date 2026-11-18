@@ -5,7 +5,7 @@ export const implanteDentario: Tratamento = {
   nome: 'Implante dentário',
   nomeTitle: 'Implante Dentário',
   description:
-    'Implante dentário em Suzano para repor dentes perdidos com mastigação firme e aparência natural. Planejamento com tomografia. Avaliação sem custo.',
+    'Implante dentário em Suzano para repor dentes perdidos com mastigação firme e aparência natural. Planejamento com tomografia. Agende sua avaliação.',
   resumo:
     'Pino de titânio integrado ao osso que substitui a raiz do dente perdido. Devolve mastigação e estética sem desgastar os dentes vizinhos.',
   intro: [
@@ -71,7 +71,7 @@ export const implanteDentario: Tratamento = {
       titulo: 'O que influencia o valor do implante dentário',
       paragrafos: [
         'Quem pesquisa "implante dentário preço" encontra valores muito diferentes, e isso tem explicação. O orçamento depende do número de implantes, da necessidade de enxerto ósseo ou de outros procedimentos prévios, do tipo de prótese (coroa unitária, ponte ou protocolo), do material da coroa e dos exames de imagem necessários.',
-        'Por isso o valor só é definido depois da avaliação, com o plano completo em mãos. A consulta de avaliação não tem custo, e as opções são apresentadas com prazo e forma de pagamento antes de qualquer decisão.',
+        'Por isso o valor só é definido depois da avaliação, com o plano completo em mãos. Na consulta de avaliação, as opções são apresentadas com prazo e forma de pagamento antes de qualquer decisão.',
       ],
     },
   ],

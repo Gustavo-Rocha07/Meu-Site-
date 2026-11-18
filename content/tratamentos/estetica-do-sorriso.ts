@@ -5,7 +5,7 @@ export const esteticaDoSorriso: Tratamento = {
   nome: 'Estética do sorriso',
   nomeTitle: 'Estética do Sorriso',
   description:
-    'Estética do sorriso em Suzano: ajuste de cor, forma e proporção dos dentes, planejado e testado antes de qualquer desgaste. Avaliação sem custo.',
+    'Estética do sorriso em Suzano: ajuste de cor, forma e proporção dos dentes, planejado e testado antes de qualquer desgaste. Agende sua avaliação.',
   resumo:
     'Ajuste de proporção, contorno e cor, planejado digitalmente e testado em ensaio na boca antes de qualquer desgaste definitivo.',
   intro: [
@@ -72,7 +72,7 @@ export const esteticaDoSorriso: Tratamento = {
       titulo: 'O que influencia o valor da estética do sorriso',
       paragrafos: [
         'Como o plano combina diferentes procedimentos, o valor depende de quais etapas são necessárias, do número de dentes envolvidos e dos materiais escolhidos (resina ou porcelana, por exemplo). Tratamentos prévios de saúde bucal também entram na conta.',
-        'Na avaliação sem custo, as alternativas são apresentadas com prazo e valor, das mais conservadoras às mais completas. O resultado varia conforme as condições de cada paciente.',
+        'Na avaliação, as alternativas são apresentadas com prazo e valor, das mais conservadoras às mais completas. O resultado varia conforme as condições de cada paciente.',
       ],
     },
   ],

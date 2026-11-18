@@ -20,7 +20,7 @@ export type Tratamento = {
    * "odontopediatria", visto no Search Console.
    */
   tituloSeo?: string;
-  /** Até 155 caracteres, com benefício, cidade e "Avaliação sem custo". */
+  /** Até 155 caracteres, com benefício, cidade e chamada para a avaliação. */
   description: string;
   /** Resumo de uma ou duas frases para o card da home. */
   resumo: string;

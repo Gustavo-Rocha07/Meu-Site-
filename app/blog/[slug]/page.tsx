@@ -151,7 +151,7 @@ export default async function ArtigoPage({ params }: Params) {
 
       <CTASection
         titulo="Ficou com alguma dúvida?"
-        texto={`Na avaliação, a Dra. Michele examina o seu caso e explica as opções de ${tratamento.nome.toLowerCase()} com prazo e valor. A consulta de avaliação não tem custo.`}
+        texto={`Na avaliação, a Dra. Michele examina o seu caso e explica as opções de ${tratamento.nome.toLowerCase()} com prazo e valor. Você decide depois, sem compromisso.`}
         whatsapp={waSobreTratamento(tratamento.mensagem)}
       />
 

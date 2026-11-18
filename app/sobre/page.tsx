@@ -14,7 +14,7 @@ import { metadataPagina, schemaDoutora } from '@/lib/seo';
 export const metadata = metadataPagina({
   title: 'Sobre a Dra. Michele Herreira | Dentista em Suzano',
   description:
-    'Conheça a Dra. Michele Herreira, cirurgiã-dentista (CRO-SP 71275) com mais de 25 anos em implantes e reabilitação oral em Suzano. Avaliação sem custo.',
+    'Conheça a Dra. Michele Herreira, cirurgiã-dentista (CRO-SP 71275) com mais de 25 anos em implantes e reabilitação oral em Suzano. Agende sua avaliação.',
   path: '/sobre',
   absoluto: true,
 });
@@ -105,7 +105,7 @@ export default function SobrePage() {
               <p className="mt-5 text-[17px] leading-relaxed text-charcoal/90">
                 Cada plano de tratamento é montado a partir do exame clínico e das imagens,
                 apresentado ao paciente antes de começar e revisto sempre que o caso pede. Na
-                avaliação, que não tem custo, são explicadas as alternativas possíveis — inclusive
+                avaliação são explicadas as alternativas possíveis — inclusive
                 as mais simples — com prazo e valor por escrito.
               </p>
               <p className="mt-5 text-[17px] leading-relaxed text-charcoal/90">

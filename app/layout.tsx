@@ -24,7 +24,7 @@ const dmSans = DM_Sans({
 const padrao = metadataPagina({
   title: 'Dentista em Suzano | Dra. Michele Herreira Odontologia',
   description:
-    'Implantes, carga imediata, estética do sorriso e odontopediatria em Suzano, com mais de 25 anos de experiência. Avaliação sem custo.',
+    'Implantes, carga imediata, estética do sorriso e odontopediatria em Suzano, com mais de 25 anos de experiência. Agende sua avaliação.',
   path: '/',
   absoluto: true,
 });

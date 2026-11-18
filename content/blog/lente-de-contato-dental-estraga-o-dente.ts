@@ -91,7 +91,7 @@ export const lenteEstragaDente: Artigo = {
       titulo: 'Em resumo',
       paragrafos: [
         'Lente de contato dental não estraga o dente quando é bem indicada, feita com preparo mínimo e mantida com cuidado. O risco está nos atalhos: desgastar demais, ignorar problemas de gengiva e mordida ou usar a lente para resolver o que pedia outro tratamento.',
-        'O resultado estético varia de pessoa para pessoa. Para entender se as lentes fazem sentido para o seu sorriso, veja como funciona a [lente de contato dental em Suzano](/lente-de-contato-dental) e agende uma avaliação sem custo.',
+        'O resultado estético varia de pessoa para pessoa. Para entender se as lentes fazem sentido para o seu sorriso, veja como funciona a [lente de contato dental em Suzano](/lente-de-contato-dental) e agende uma avaliação.',
       ],
     },
   ],

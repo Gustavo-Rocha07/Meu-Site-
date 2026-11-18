@@ -5,7 +5,7 @@ export const proteseDentaria: Tratamento = {
   nome: 'Prótese dentária',
   nomeTitle: 'Prótese Dentária',
   description:
-    'Prótese dentária em Suzano: coroa, ponte, dentadura, protocolo e prótese sobre implante para voltar a mastigar com conforto. Avaliação sem custo.',
+    'Prótese dentária em Suzano: coroa, ponte, dentadura, protocolo e prótese sobre implante para voltar a mastigar com conforto. Agende sua avaliação.',
   resumo:
     'Coroas, pontes, próteses removíveis, protocolo e prótese sobre implante — a peça certa depende de quantos dentes faltam e do osso disponível.',
   intro: [
@@ -72,7 +72,7 @@ export const proteseDentaria: Tratamento = {
       titulo: 'O que influencia o valor da prótese',
       paragrafos: [
         'O valor depende do tipo de prótese, do número de dentes repostos, do material (resina, metalocerâmica, cerâmica pura ou zircônia), da necessidade de tratamentos prévios e, no caso de próteses sobre implante, do número de implantes.',
-        'Na avaliação, que não tem custo, as alternativas para o seu caso são apresentadas lado a lado, com prazo e valor. O resultado varia conforme as condições de cada paciente.',
+        'Na avaliação, as alternativas para o seu caso são apresentadas lado a lado, com prazo e valor. O resultado varia conforme as condições de cada paciente.',
       ],
     },
   ],

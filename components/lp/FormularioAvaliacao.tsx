@@ -130,7 +130,7 @@ export default function FormularioAvaliacao() {
 
       <button type="submit" className="btn-primary group w-full py-4 text-base">
         <WhatsAppIcon size={18} />
-        Quero minha avaliação sem custo
+        Quero agendar minha avaliação
         <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </button>
 

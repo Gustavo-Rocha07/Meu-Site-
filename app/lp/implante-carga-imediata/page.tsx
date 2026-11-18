@@ -9,6 +9,7 @@ import {
   Clock,
   MapPin,
   Navigation,
+  Play,
   ScanLine,
   ShieldCheck,
   Smile,
@@ -56,7 +57,8 @@ const MENSAGEM_WHATSAPP =
   'Olá! Vim pelo anúncio do Google e quero agendar uma avaliação para implante com carga imediata.';
 const WHATSAPP = `https://wa.me/${TELEFONE.replace('+', '')}?text=${encodeURIComponent(MENSAGEM_WHATSAPP)}`;
 
-const casoTopo = casosMontados.find((c) => c.id === 'carga-imediata-1')!;
+// Antes/depois de carga imediata do Sr. Cícero (o mesmo paciente do vídeo de relato).
+const casoCargaImediata = casosMontados.find((c) => c.id === 'carga-imediata-1')!;
 const comparadores = casos.filter((c) => c.id === 'caso-2' || c.id === 'caso-3');
 
 const confianca = [
@@ -179,22 +181,34 @@ export default function LandingCargaImediata() {
               </h1>
             </div>
 
-            <figure className="mx-auto mt-8 w-full max-w-[260px] sm:max-w-[320px] lg:col-start-2 lg:row-span-2
-                               lg:row-start-1 lg:mt-0 lg:max-w-[380px] lg:self-center">
-              <div className="overflow-hidden rounded-[1.5rem] bg-dark/5 shadow-xl ring-1 ring-dark/10">
+            {/* Paciente real sorrindo (quadro do vídeo de depoimento), com atalho para o relato */}
+            <figure className="mx-auto mt-8 w-full max-w-[300px] sm:max-w-[340px] lg:col-start-2 lg:row-span-2
+                               lg:row-start-1 lg:mt-0 lg:max-w-[400px] lg:self-center">
+              <a href="#depoimento" className="group relative block overflow-hidden rounded-[1.5rem] bg-dark/5 shadow-2xl ring-1 ring-dark/10">
                 <Image
-                  src={casoTopo.src}
-                  alt={casoTopo.alt}
-                  width={casoTopo.width}
-                  height={casoTopo.height}
+                  src="/img/carga-imediata-sr-cicero.jpg"
+                  alt="Sr. Cícero, paciente de implante com carga imediata da Dra. Michele Herreira, sorrindo"
+                  width={960}
+                  height={1200}
                   preload
-                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 320px, 380px"
-                  className="h-auto w-full"
+                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 400px"
+                  className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-              </div>
+                <span
+                  className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-surface/95 p-3
+                             shadow-lg backdrop-blur-sm"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-dark text-white">
+                    <Play size={16} className="ml-0.5 fill-white" aria-hidden="true" />
+                  </span>
+                  <span className="text-left">
+                    <span className="block text-sm font-medium text-dark">Sr. Cícero, 7 implantes</span>
+                    <span className="block text-xs text-muted">Assista ao relato dele (1 min)</span>
+                  </span>
+                </span>
+              </a>
               <figcaption className="mt-3 text-center text-xs text-muted">
-                Antes e depois de paciente real, publicado com autorização. O resultado varia de
-                pessoa para pessoa.
+                Paciente real, publicado com autorização. O resultado varia de pessoa para pessoa.
               </figcaption>
             </figure>
 
@@ -252,7 +266,72 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 3. Identificação */}
+        {/* 3. Depoimentos em vídeo: logo no começo, porque é a prova mais forte da página */}
+        <section id="depoimento" className="section-py scroll-mt-4 bg-dark">
+          <div className="container-main">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-gold">
+                <span className="h-px w-6 bg-gold" />
+                Depoimento real
+              </span>
+              <h2
+                className="mt-6 font-cormorant font-normal leading-[1.08] text-white"
+                style={{ fontSize: 'clamp(2.2rem, 4.4vw, 3.4rem)' }}
+              >
+                Veja o relato do Sr. Cícero, paciente de carga imediata
+              </h2>
+              <p className="mt-6 text-[17px] leading-relaxed text-white/70">
+                Ele chegou para mudar o sorriso e colocou sete implantes. No vídeo, conta como foi
+                a experiência, da cirurgia ao resultado. Ao lado, a jornada de outro paciente, do
+                planejamento digital ao momento em que se vê no espelho.
+              </p>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 items-start gap-10 sm:grid-cols-2 lg:max-w-4xl">
+              <div>
+                <VideoDepoimento
+                  src="/video/relato-sr-cicero.mp4"
+                  capa="/img/relato-sr-cicero-capa.jpg"
+                  largura={720}
+                  altura={1280}
+                  alt="Sr. Cícero ao lado da Dra. Michele Herreira no consultório, depois do tratamento"
+                  rotulo="Relato do Sr. Cícero · 1 min"
+                />
+                <p className="mx-auto mt-3 max-w-[340px] text-center text-sm font-medium text-white">
+                  Sr. Cícero, 7 implantes com carga imediata
+                </p>
+              </div>
+              <div>
+                <VideoDepoimento
+                  src="/video/carga-imediata-paciente.mp4"
+                  capa="/img/carga-imediata-paciente-capa.jpg"
+                  largura={720}
+                  altura={1140}
+                  alt="Paciente da clínica contando a experiência com implante de carga imediata"
+                  rotulo="Do planejamento ao sorriso · 34 s"
+                />
+                <p className="mx-auto mt-3 max-w-[340px] text-center text-sm font-medium text-white">
+                  Do planejamento ao novo sorriso
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-8 max-w-2xl text-[11px] leading-relaxed text-white/50">
+              Pacientes reais, publicados com autorização. Tratamentos realizados pela Dra. Michele
+              Herreira ({CRO}). O resultado varia de pessoa para pessoa.
+            </p>
+            <a
+              href="#avaliacao"
+              className="mt-8 inline-flex items-center justify-center gap-2.5 rounded-full bg-gold px-7 py-3.5 text-[15px]
+                         font-medium text-dark transition-colors hover:bg-gold-light"
+            >
+              Quero minha avaliação sem custo
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </section>
+
+        {/* 4. Identificação */}
         <section className="section-py bg-cream">
           <div className="container-main grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -281,19 +360,35 @@ export default function LandingCargaImediata() {
           </div>
         </section>
 
-        {/* 4. Casos reais */}
+        {/* 5. Casos reais */}
         <section className="section-py bg-white">
           <div className="container-main">
             <div className="max-w-2xl">
               <span className="section-badge mb-5">Casos reais</span>
               <h2 className="section-heading text-4xl lg:text-5xl">Pacientes que voltaram a sorrir</h2>
               <p className="mt-5 leading-relaxed text-muted">
-                Arraste o divisor das fotos para comparar o antes e o depois do mesmo paciente.
+                Antes e depois de pacientes reais. Nas fotos com divisor, arraste para comparar.
               </p>
             </div>
-            <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
+            <div className="mt-12 grid grid-cols-1 items-center gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-[260px_1fr_1fr]">
+              <figure className="mx-auto w-full max-w-[260px] md:row-span-2 lg:row-span-1">
+                <div className="overflow-hidden rounded-2xl bg-dark/5 ring-1 ring-dark/10">
+                  <Image
+                    src={casoCargaImediata.src}
+                    alt={casoCargaImediata.alt}
+                    width={casoCargaImediata.width}
+                    height={casoCargaImediata.height}
+                    sizes="260px"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <figcaption className="mt-4">
+                  <h3 className="font-cormorant text-xl text-dark">Sr. Cícero: carga imediata</h3>
+                  <p className="mt-0.5 text-sm text-muted">Antes à esquerda, depois à direita</p>
+                </figcaption>
+              </figure>
               {comparadores.map((c) => (
-                <Comparador key={c.id} caso={c} sizes="(max-width: 768px) calc(100vw - 48px), 520px" />
+                <Comparador key={c.id} caso={c} sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 45vw, 400px" />
               ))}
             </div>
             <p className="mt-10 max-w-2xl text-xs leading-relaxed text-muted">
@@ -301,46 +396,6 @@ export default function LandingCargaImediata() {
               resultado depende das condições clínicas iniciais, do plano de tratamento e da
               resposta de cada organismo.
             </p>
-          </div>
-        </section>
-
-        {/* 5. Vídeo */}
-        <section className="section-py bg-dark">
-          <div className="container-main grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-20">
-            <div className="max-w-xl">
-              <span className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-gold">
-                <span className="h-px w-6 bg-gold" />
-                Do planejamento ao novo sorriso
-              </span>
-              <h2
-                className="mt-6 font-cormorant font-normal leading-[1.08] text-white"
-                style={{ fontSize: 'clamp(2.2rem, 4.4vw, 3.4rem)' }}
-              >
-                Veja como foi o tratamento de um paciente da clínica
-              </h2>
-              <p className="mt-6 text-[17px] leading-relaxed text-white/70">
-                Do planejamento digital, feito junto com o paciente no computador, à cirurgia e ao
-                momento em que ele se vê no espelho. Em 34 segundos, a jornada real de quem passou
-                pelo tratamento.
-              </p>
-              <div className="mt-9">
-                <a
-                  href="#avaliacao"
-                  className="inline-flex items-center justify-center gap-2.5 rounded-full bg-gold px-7 py-3.5 text-[15px]
-                             font-medium text-dark transition-colors hover:bg-gold-light"
-                >
-                  Quero começar pela avaliação
-                  <ArrowRight size={16} aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-            <div>
-              <VideoDepoimento />
-              <p className="mx-auto mt-3 max-w-[340px] text-center text-[11px] leading-relaxed text-white/50">
-                Caso real, publicado com autorização. Tratamento realizado pela Dra. Michele
-                Herreira ({CRO}).
-              </p>
-            </div>
           </div>
         </section>
 

@@ -181,17 +181,17 @@ export default function LandingCargaImediata() {
               </h1>
             </div>
 
-            {/* Paciente real sorrindo (quadro do vídeo de depoimento), com atalho para o relato */}
+            {/* Antes/depois do Sr. Cícero, com atalho para o relato em vídeo dele */}
             <figure className="mx-auto mt-8 w-full max-w-[300px] sm:max-w-[340px] lg:col-start-2 lg:row-span-2
-                               lg:row-start-1 lg:mt-0 lg:max-w-[400px] lg:self-center">
+                               lg:row-start-1 lg:mt-0 lg:max-w-[380px] lg:self-center">
               <a href="#depoimento" className="group relative block overflow-hidden rounded-[1.5rem] bg-dark/5 shadow-2xl ring-1 ring-dark/10">
                 <Image
-                  src="/img/carga-imediata-sr-cicero.jpg"
-                  alt="Sr. Cícero, paciente de implante com carga imediata da Dra. Michele Herreira, sorrindo"
-                  width={960}
-                  height={1200}
+                  src={casoCargaImediata.src}
+                  alt={casoCargaImediata.alt}
+                  width={casoCargaImediata.width}
+                  height={casoCargaImediata.height}
                   preload
-                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 400px"
+                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 380px"
                   className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <span
@@ -208,7 +208,8 @@ export default function LandingCargaImediata() {
                 </span>
               </a>
               <figcaption className="mt-3 text-center text-xs text-muted">
-                Paciente real, publicado com autorização. O resultado varia de pessoa para pessoa.
+                Antes e depois do Sr. Cícero, paciente real, publicado com autorização. O resultado
+                varia de pessoa para pessoa.
               </figcaption>
             </figure>
 
@@ -367,28 +368,12 @@ export default function LandingCargaImediata() {
               <span className="section-badge mb-5">Casos reais</span>
               <h2 className="section-heading text-4xl lg:text-5xl">Pacientes que voltaram a sorrir</h2>
               <p className="mt-5 leading-relaxed text-muted">
-                Antes e depois de pacientes reais. Nas fotos com divisor, arraste para comparar.
+                Arraste o divisor das fotos para comparar o antes e o depois do mesmo paciente.
               </p>
             </div>
-            <div className="mt-12 grid grid-cols-1 items-center gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-[260px_1fr_1fr]">
-              <figure className="mx-auto w-full max-w-[260px] md:row-span-2 lg:row-span-1">
-                <div className="overflow-hidden rounded-2xl bg-dark/5 ring-1 ring-dark/10">
-                  <Image
-                    src={casoCargaImediata.src}
-                    alt={casoCargaImediata.alt}
-                    width={casoCargaImediata.width}
-                    height={casoCargaImediata.height}
-                    sizes="260px"
-                    className="h-auto w-full"
-                  />
-                </div>
-                <figcaption className="mt-4">
-                  <h3 className="font-cormorant text-xl text-dark">Sr. Cícero: carga imediata</h3>
-                  <p className="mt-0.5 text-sm text-muted">Antes à esquerda, depois à direita</p>
-                </figcaption>
-              </figure>
+            <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
               {comparadores.map((c) => (
-                <Comparador key={c.id} caso={c} sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 45vw, 400px" />
+                <Comparador key={c.id} caso={c} sizes="(max-width: 768px) calc(100vw - 48px), 520px" />
               ))}
             </div>
             <p className="mt-10 max-w-2xl text-xs leading-relaxed text-muted">

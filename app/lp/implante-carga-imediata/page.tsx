@@ -40,7 +40,7 @@ import { cargaImediata } from '@/content/tratamentos/carga-imediata';
 export const metadata: Metadata = {
   title: { absolute: 'Implante Carga Imediata em Suzano | Dra. Michele Herreira' },
   description:
-    'Implante com carga imediata em Suzano e Ferraz: em casos indicados, dentes provisórios fixos no mesmo dia da cirurgia. Avaliação sem custo.',
+    'Implante com carga imediata em Suzano e Ferraz: em casos indicados, dentes provisórios fixos no mesmo dia da cirurgia. Agende sua avaliação.',
   alternates: { canonical: '/lp/implante-carga-imediata' },
   robots: { index: false, follow: false },
   openGraph: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: '/lp/implante-carga-imediata',
     title: 'Implante com carga imediata em Suzano | Dra. Michele Herreira',
-    description: 'Em casos indicados, dentes provisórios fixos no mesmo dia da cirurgia. Avaliação sem custo.',
+    description: 'Em casos indicados, dentes provisórios fixos no mesmo dia da cirurgia. Agende sua avaliação.',
     images: [OG_IMAGEM],
   },
 };
@@ -65,7 +65,7 @@ const confianca = [
   { icone: BadgeCheck, valor: '25+ anos', rotulo: 'em implantodontia e reabilitação oral' },
   { icone: ScanLine, valor: 'Tomografia', rotulo: 'planejamento antes de qualquer cirurgia' },
   { icone: MapPin, valor: '2 unidades', rotulo: 'Suzano e Ferraz de Vasconcelos' },
-  { icone: CalendarCheck, valor: 'Sem custo', rotulo: 'avaliação sem compromisso' },
+  { icone: CalendarCheck, valor: 'Sem compromisso', rotulo: 'você decide depois da avaliação' },
 ];
 
 const dores = [
@@ -79,7 +79,7 @@ const dores = [
 const etapas = [
   {
     icone: Stethoscope,
-    titulo: 'Avaliação sem custo',
+    titulo: 'Avaliação',
     texto: 'Exame clínico, conversa sobre o que te incomoda e explicação das opções possíveis para o seu caso.',
     prazo: '1 consulta',
   },
@@ -115,7 +115,14 @@ const faq = [
   {
     pergunta: 'Quanto custa o implante com carga imediata?',
     resposta:
-      'O valor depende do número de implantes, da necessidade de extrações ou enxerto e do tipo de prótese. Por isso ele só é definido depois da avaliação, que não tem custo. Você recebe o plano com prazo, valor e formas de pagamento antes de decidir.',
+      'O valor depende do número de implantes, da necessidade de extrações ou enxerto e do tipo de prótese. Por isso ele só é definido depois da avaliação. Você recebe o plano com prazo, valor e formas de pagamento antes de decidir.',
+  },
+  {
+    // Sem citar valor: o Código de Ética do CFO (art. 44) proíbe anunciar preço ou
+    // serviço gratuito. A equipe explica o valor e o abatimento no WhatsApp.
+    pergunta: 'A avaliação é paga?',
+    resposta:
+      'Os valores e as condições da consulta de avaliação são informados pela equipe no agendamento, pelo WhatsApp. Na consulta, você recebe o plano de tratamento com prazo e valor e decide depois, sem compromisso.',
   },
   {
     pergunta: 'Dói?',
@@ -128,7 +135,7 @@ const faq = [
 function BotaoAvaliacao({ className = '' }: { className?: string }) {
   return (
     <a href="#avaliacao" className={`btn-primary group ${className}`}>
-      Quero minha avaliação sem custo
+      Quero agendar minha avaliação
       <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
     </a>
   );
@@ -222,7 +229,7 @@ export default function LandingCargaImediata() {
 
               <ul className="mt-7 space-y-2.5">
                 {[
-                  'Avaliação sem custo e sem compromisso',
+                  'Avaliação com exame clínico e explicação das opções',
                   'Planejamento com tomografia antes da cirurgia',
                   'Você sabe o plano, o prazo e o valor antes de começar',
                 ].map((b) => (
@@ -326,7 +333,7 @@ export default function LandingCargaImediata() {
               className="mt-8 inline-flex items-center justify-center gap-2.5 rounded-full bg-gold px-7 py-3.5 text-[15px]
                          font-medium text-dark transition-colors hover:bg-gold-light"
             >
-              Quero minha avaliação sem custo
+              Quero agendar minha avaliação
               <ArrowRight size={16} aria-hidden="true" />
             </a>
           </div>
@@ -460,7 +467,7 @@ export default function LandingCargaImediata() {
         <section id="avaliacao" className="section-py scroll-mt-4 bg-white">
           <div className="container-main grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div>
-              <span className="section-badge mb-5">Avaliação sem custo</span>
+              <span className="section-badge mb-5">Agendamento</span>
               <h2 className="section-heading text-4xl lg:text-5xl">Agende sua avaliação</h2>
               <p className="mt-5 leading-relaxed text-muted">
                 Responda três perguntas rápidas e a sua mensagem chega pronta no WhatsApp da
@@ -544,7 +551,7 @@ export default function LandingCargaImediata() {
                      font-semibold text-white shadow-lg shadow-black/10"
         >
           <WhatsAppIcon size={19} />
-          Agendar avaliação sem custo
+          Agendar minha avaliação
         </LinkWhatsApp>
       </div>
     </>

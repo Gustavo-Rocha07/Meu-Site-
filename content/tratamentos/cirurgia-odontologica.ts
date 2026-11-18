@@ -5,7 +5,7 @@ export const cirurgiaOdontologica: Tratamento = {
   nome: 'Cirurgia odontológica',
   nomeTitle: 'Cirurgia Odontológica',
   description:
-    'Cirurgia odontológica em Suzano: extração de siso, enxerto ósseo dental e extrações com planejamento em tomografia. Avaliação sem custo.',
+    'Cirurgia odontológica em Suzano: extração de siso, enxerto ósseo dental e extrações com planejamento em tomografia. Agende sua avaliação.',
   resumo:
     'Extrações, extração de siso, enxertos ósseos e instalação de implantes com planejamento em tomografia e guia cirúrgico.',
   intro: [
@@ -72,7 +72,7 @@ export const cirurgiaOdontologica: Tratamento = {
       titulo: 'O que influencia o valor da cirurgia odontológica',
       paragrafos: [
         'O valor depende do tipo de cirurgia, do grau de dificuldade (siso incluso e próximo ao nervo é diferente de uma extração simples), do número de dentes, da necessidade de tomografia e, no enxerto, do tipo e da quantidade de material.',
-        'A avaliação não tem custo, e o orçamento é apresentado depois do exame. Cada caso tem evolução própria.',
+        'O orçamento é apresentado na avaliação, depois do exame. Cada caso tem evolução própria.',
       ],
     },
   ],

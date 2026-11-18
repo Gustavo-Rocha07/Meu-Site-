@@ -34,7 +34,7 @@ export async function GET() {
             Implantes, carga imediata, estética do sorriso e odontopediatria
           </div>
           <div style={{ marginTop: 40, fontSize: 24, color: '#2A2520' }}>
-            CRO-SP 71275 · Avaliação sem custo
+            CRO-SP 71275 · Suzano e Ferraz de Vasconcelos
           </div>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse só aceita <img> */}

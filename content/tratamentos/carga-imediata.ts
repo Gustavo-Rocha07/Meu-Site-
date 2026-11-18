@@ -5,7 +5,7 @@ export const cargaImediata: Tratamento = {
   nome: 'Carga imediata',
   nomeTitle: 'Carga Imediata',
   description:
-    'Implante com carga imediata em Suzano: quando o osso permite, você sai com dente provisório fixo no mesmo dia. Avaliação sem custo.',
+    'Implante com carga imediata em Suzano: quando o osso permite, você sai com dente provisório fixo no mesmo dia. Agende sua avaliação.',
   resumo:
     'Quando as condições ósseas permitem, a prótese provisória é instalada na mesma sessão da cirurgia, sem passar a cicatrização sem dentes.',
   intro: [
@@ -78,7 +78,7 @@ export const cargaImediata: Tratamento = {
       titulo: 'O que influencia o valor da carga imediata',
       paragrafos: [
         'O valor varia conforme o número de implantes, a necessidade de extrações ou enxerto, o tipo e o material das próteses provisória e definitiva e os exames necessários. Um protocolo de arcada inteira e a reposição de um único dente são tratamentos muito diferentes.',
-        'Por isso o orçamento é feito depois da avaliação, que não tem custo. O resultado e o prazo variam de pessoa para pessoa.',
+        'Por isso o orçamento é feito depois da avaliação. O resultado e o prazo variam de pessoa para pessoa.',
       ],
     },
   ],

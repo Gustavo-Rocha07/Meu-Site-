@@ -10,7 +10,7 @@ import { metadataPagina } from '@/lib/seo';
 export const metadata = metadataPagina({
   title: 'Blog de Saúde Bucal em Suzano',
   description:
-    'Respostas da Dra. Michele Herreira, dentista em Suzano, sobre implante, carga imediata, lentes, clareamento e odontopediatria. Avaliação sem custo.',
+    'Respostas da Dra. Michele Herreira, dentista em Suzano, sobre implante, carga imediata, lentes, clareamento e odontopediatria. Agende sua avaliação.',
   path: '/blog',
 });
 

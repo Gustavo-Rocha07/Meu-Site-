@@ -188,7 +188,7 @@ export default function PaginaTratamento({ t }: { t: Tratamento }) {
                 Perguntas frequentes
               </a>
             </div>
-            <p className="mt-4 text-xs text-muted">Avaliação sem custo &middot; {CRO}</p>
+            <p className="mt-4 text-xs text-muted">Plano com prazo e valor antes de começar &middot; {CRO}</p>
           </div>
         </div>
       </header>
@@ -213,8 +213,8 @@ export default function PaginaTratamento({ t }: { t: Tratamento }) {
                 Avaliação para {t.nome.toLowerCase()}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                Exame clínico, explicação das opções e plano com prazo e valor. Sem custo e sem
-                compromisso.
+                Exame clínico, explicação das opções e plano com prazo e valor. Sem compromisso de
+                fechar o tratamento.
               </p>
               <a
                 href={whatsapp}
@@ -228,7 +228,7 @@ export default function PaginaTratamento({ t }: { t: Tratamento }) {
               <ul className="mt-6 space-y-3 border-t border-border pt-5 text-sm text-muted">
                 <li className="flex items-start gap-2.5">
                   <BadgeCheck size={15} className="mt-0.5 shrink-0 text-gold-dark" aria-hidden="true" />
-                  Avaliação sem custo
+                  Plano com prazo e valor por escrito
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Clock size={15} className="mt-0.5 shrink-0 text-gold-dark" aria-hidden="true" />
@@ -339,7 +339,7 @@ export default function PaginaTratamento({ t }: { t: Tratamento }) {
 
       <CTASection
         titulo={`Avaliação de ${t.nome.toLowerCase()} em ${CIDADE_PRINCIPAL}`}
-        texto="Na consulta, o caso é examinado, as dúvidas são respondidas e as opções são apresentadas com prazo e valor. A avaliação não tem custo e não gera compromisso de fechar tratamento."
+        texto="Na consulta, o caso é examinado, as dúvidas são respondidas e as opções são apresentadas com prazo e valor. Você decide depois, sem compromisso de fechar o tratamento."
         whatsapp={whatsapp}
       />
 

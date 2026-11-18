@@ -19,7 +19,7 @@ import { metadataPagina } from '@/lib/seo';
 export const metadata = metadataPagina({
   title: 'Contato e Endereços em Suzano',
   description:
-    'Endereços em Suzano e Ferraz de Vasconcelos, WhatsApp e horário da Dra. Michele Herreira, com mapa e rota para cada unidade. Avaliação sem custo.',
+    'Endereços em Suzano e Ferraz de Vasconcelos, WhatsApp e horário da Dra. Michele Herreira, com mapa e rota para cada unidade. Agende sua avaliação.',
   path: '/contato',
 });
 
@@ -65,7 +65,7 @@ export default function ContatoPage() {
           </h1>
           <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted">
             A Dra. Michele atende em Suzano e em Ferraz de Vasconcelos. A forma mais rápida de
-            agendar é pelo WhatsApp; a avaliação não tem custo e serve para examinar o caso e
+            agendar é pelo WhatsApp; a avaliação serve para examinar o caso e
             apresentar as opções de tratamento com prazo e valor.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

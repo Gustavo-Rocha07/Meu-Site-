@@ -5,7 +5,7 @@ export const lenteDeContatoDental: Tratamento = {
   nome: 'Lente de contato dental',
   nomeTitle: 'Lente de Contato Dental',
   description:
-    'Lente de contato dental em Suzano: lâminas de porcelana para ajustar cor, forma e pequenos desalinhamentos com mínimo desgaste. Avaliação sem custo.',
+    'Lente de contato dental em Suzano: lâminas de porcelana para ajustar cor, forma e pequenos desalinhamentos com mínimo desgaste. Agende sua avaliação.',
   resumo:
     'Lâminas de porcelana de espessura mínima cimentadas sobre o dente. Corrigem cor, formato e pequenos desalinhamentos com desgaste reduzido.',
   intro: [
@@ -76,7 +76,7 @@ export const lenteDeContatoDental: Tratamento = {
       titulo: 'O que influencia o valor da lente de contato dental',
       paragrafos: [
         'O valor depende principalmente do número de lentes, do tipo de cerâmica, do laboratório e da necessidade de tratamentos antes, como clareamento, correção de gengiva ou ortodontia. Fazer lentes só nos dentes que aparecem no sorriso ou em mais dentes também muda o orçamento.',
-        'Na avaliação sem custo, a Dra. Michele explica o que é possível no seu caso. O resultado estético varia de pessoa para pessoa e depende das condições iniciais dos dentes e da gengiva.',
+        'Na avaliação, a Dra. Michele explica o que é possível no seu caso. O resultado estético varia de pessoa para pessoa e depende das condições iniciais dos dentes e da gengiva.',
       ],
     },
   ],

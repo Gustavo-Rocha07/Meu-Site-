@@ -8,7 +8,7 @@ export const odontopediatria: Tratamento = {
   // apareciam na posição 3 sem nenhum clique: o title não dizia "dentista infantil".
   tituloSeo: 'Dentista Infantil em Suzano | Odontopediatria',
   description:
-    'Dentista infantil em Suzano: odontopediatria dos 3 meses aos 15 anos, primeira consulta do bebê e prevenção sem trauma. Avaliação sem custo.',
+    'Dentista infantil em Suzano: odontopediatria dos 3 meses aos 15 anos, primeira consulta do bebê e prevenção sem trauma. Agende sua avaliação.',
   resumo:
     'Acompanhamento e prevenção para crianças dos 3 meses aos 15 anos, em consultas leves e no tempo de cada fase.',
   intro: [
@@ -68,7 +68,7 @@ export const odontopediatria: Tratamento = {
       titulo: 'O que influencia o valor do atendimento infantil',
       paragrafos: [
         'O valor depende do tipo de consulta e do que for necessário: prevenção, aplicação de flúor, selantes, restaurações ou tratamentos mais complexos. Uma criança em acompanhamento preventivo costuma precisar de menos intervenções ao longo dos anos.',
-        'A avaliação inicial não tem custo e serve também para os pais tirarem dúvidas sobre alimentação, chupeta, mamadeira e escovação.',
+        'A avaliação inicial serve também para os pais tirarem dúvidas sobre alimentação, chupeta, mamadeira e escovação.',
       ],
     },
   ],

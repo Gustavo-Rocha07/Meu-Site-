@@ -68,7 +68,7 @@ implante de silicone, cachorro, veterinário, pdf, o que é
 
 - Implante Carga Imediata
 - Dentes Fixos no Mesmo Dia*
-- Avaliação Sem Custo
+- Agende sua Avaliação
 - Implantes em Suzano e Ferraz
 - 25+ Anos em Implantodontia
 - Planejamento com Tomografia
@@ -81,7 +81,7 @@ implante de silicone, cachorro, veterinário, pdf, o que é
 ### Descrições (até 90 caracteres)
 
 - Em casos indicados, você sai com dentes provisórios fixos no mesmo dia. Agende.
-- Avaliação sem custo em Suzano e Ferraz. Plano com prazo e valor antes de começar.
+- Avaliação em Suzano e Ferraz. Plano com prazo e valor antes de começar.
 - Dra. Michele Herreira, CRO-SP 71275. Mais de 25 anos em implantes e reabilitação.
 
 ### Recursos
@@ -94,6 +94,8 @@ implante de silicone, cachorro, veterinário, pdf, o que é
   autorizados para o site).
 
 ## 3. Regras do CFO (lembrar ao escrever anúncios)
+
+A avaliação é paga (o valor é abatido do tratamento se o paciente fechar): **não** use "grátis", "sem custo" nem o valor da consulta nos anúncios — o art. 44 do Código de Ética proíbe anunciar preço e serviço gratuito, e anunciar algo como grátis e cobrar depois também viola a política de declarações enganosas do Google Ads. Quem explica o valor e o abatimento é a equipe, no WhatsApp.
 
 Sem preço ou "promoção" como chamariz, sem promessa de resultado ("garantido",
 "sem dor", "o melhor"), sempre com nome e CRO da responsável técnica, e casos

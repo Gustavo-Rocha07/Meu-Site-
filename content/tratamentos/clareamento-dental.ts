@@ -5,7 +5,7 @@ export const clareamentoDental: Tratamento = {
   nome: 'Clareamento dental',
   nomeTitle: 'Clareamento Dental',
   description:
-    'Clareamento dental em Suzano, em consultório ou caseiro supervisionado, com avaliação do esmalte e controle da sensibilidade. Avaliação sem custo.',
+    'Clareamento dental em Suzano, em consultório ou caseiro supervisionado, com avaliação do esmalte e controle da sensibilidade. Agende sua avaliação.',
   resumo:
     'Protocolo de consultório ou supervisionado em casa, com avaliação prévia do esmalte e controle da sensibilidade.',
   intro: [
@@ -64,7 +64,7 @@ export const clareamentoDental: Tratamento = {
     {
       titulo: 'O que influencia o valor do clareamento dental',
       paragrafos: [
-        'O valor depende da técnica escolhida (consultório, caseiro ou combinado), do número de sessões e da quantidade de gel necessária para o seu caso, além de tratamentos prévios como limpeza ou restaurações. A avaliação não tem custo e define o protocolo mais adequado. O grau de clareamento alcançado varia de pessoa para pessoa e não pode ser garantido antes do tratamento.',
+        'O valor depende da técnica escolhida (consultório, caseiro ou combinado), do número de sessões e da quantidade de gel necessária para o seu caso, além de tratamentos prévios como limpeza ou restaurações. A avaliação define o protocolo mais adequado. O grau de clareamento alcançado varia de pessoa para pessoa e não pode ser garantido antes do tratamento.',
       ],
     },
   ],

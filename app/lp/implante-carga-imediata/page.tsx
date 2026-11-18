@@ -57,7 +57,7 @@ const MENSAGEM_WHATSAPP =
 const WHATSAPP = `https://wa.me/${TELEFONE.replace('+', '')}?text=${encodeURIComponent(MENSAGEM_WHATSAPP)}`;
 
 const casoTopo = casosMontados.find((c) => c.id === 'carga-imediata-1')!;
-const comparadores = casos.filter((c) => c.id === 'caso-1' || c.id === 'caso-3');
+const comparadores = casos.filter((c) => c.id === 'caso-2' || c.id === 'caso-3');
 
 const confianca = [
   { icone: BadgeCheck, valor: '25+ anos', rotulo: 'em implantodontia e reabilitação oral' },
